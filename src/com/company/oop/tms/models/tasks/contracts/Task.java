@@ -1,5 +1,7 @@
 package com.company.oop.tms.models.tasks.contracts;
 
-public interface Task extends Identifiable {
+import com.company.oop.tms.models.contracts.Commentable;
+
+public interface Task extends Identifiable, Commentable {
 
 }
