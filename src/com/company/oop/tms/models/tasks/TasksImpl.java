@@ -1,5 +1,6 @@
 package com.company.oop.tms.models.tasks;
 
+import com.company.oop.tms.models.ActivityHistoryImpl;
 import com.company.oop.tms.models.contracts.ActivityHistory;
 import com.company.oop.tms.models.contracts.Comment;
 import com.company.oop.tms.models.tasks.contracts.Task;
@@ -54,6 +55,10 @@ public abstract class TasksImpl implements Task {
         return new ArrayList<>(commentList);
     }
 
+    public List<ActivityHistory> getActivityHistoryList() {
+        return new ArrayList<>(activityHistoryList);
+    }
+
     @Override
     public int getId() {
         return id;
@@ -75,5 +80,9 @@ public abstract class TasksImpl implements Task {
             }
         }
         commentList.remove(comment);
+    }
+
+    public void logActivityHistory(String activity){
+        activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 }

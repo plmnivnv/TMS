@@ -1,6 +1,5 @@
 package com.company.oop.tms.models;
 
-import com.company.oop.tms.models.contracts.Board;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;

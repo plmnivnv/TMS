@@ -4,6 +4,7 @@ import com.company.oop.tms.models.contracts.ActivityHistory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ActivityHistoryImpl implements ActivityHistory {
 //TODO
@@ -22,4 +23,6 @@ public class ActivityHistoryImpl implements ActivityHistory {
                 %s
                 """,description,timeStamp.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
     }
+
+
 }

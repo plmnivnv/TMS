@@ -1,5 +1,7 @@
 package com.company.oop.tms.models.tasks;
 
+import com.company.oop.tms.models.contracts.ActivityHistory;
+import com.company.oop.tms.models.contracts.Comment;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Bug;
 import com.company.oop.tms.models.tasks.enums.Priority;
@@ -14,18 +16,23 @@ public class BugImpl extends TasksImpl implements Bug {
     private Priority priority;
     private Severity severity;
     private StatusBug statusBug;
-    private Member assignee;
+    private final Member assignee;
+    private final List<Comment> commentList;
+    private final List<ActivityHistory> activityHistories;
 
     public BugImpl(int id, String title, String description,
-                      List<String> stepsToProduce,
-                      Priority priority,
-                      Severity severity,
-                      StatusBug statusBug) {
+                   List<String> stepsToProduce,
+                   Priority priority,
+                   Severity severity,
+                   Member assignee) {
         super(id, title, description);
         this.stepsToProduce = stepsToProduce;
         this.priority = priority;
         this.severity = severity;
-        this.statusBug = statusBug;
+        this.statusBug = StatusBug.ACTIVE;
+        this.assignee = assignee;
+        this.commentList = new ArrayList<>();
+        this.activityHistories = new ArrayList<>();
     }
 
 
@@ -49,8 +56,10 @@ public class BugImpl extends TasksImpl implements Bug {
         return severity;
     }
 
+
     @Override
     public void changeStatusBug(StatusBug statusBug) {
+        logActivityHistory(String.format("Status changed from %s to %s", statusBug, getStatusBug()));
         this.statusBug = statusBug;
     }
 
@@ -63,4 +72,6 @@ public class BugImpl extends TasksImpl implements Bug {
     public void changeSeverityBug(Severity severity) {
         this.severity = severity;
     }
+
+
 }

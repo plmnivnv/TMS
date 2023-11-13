@@ -1,7 +1,7 @@
 package com.company.oop.tms;
 
-import com.company.oop.tms.models.ActivityHistoryImpl;
-import com.company.oop.tms.models.contracts.ActivityHistory;
+import com.company.oop.tms.models.MemberImpl;
+import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.BugImpl;
 import com.company.oop.tms.models.tasks.contracts.Bug;
 import com.company.oop.tms.models.tasks.contracts.Task;
@@ -14,12 +14,19 @@ import java.util.List;
 
 public class Startup {
     public static void main(String[] args) {
-        List<String> steps = new ArrayList<>();
-        steps.add("test");
-        Bug task = new BugImpl(1,"Testsdasdas","Testasdasdad",steps, Priority.HIGH, Severity.CRITICAL, StatusBug.ACTIVE);
-        task.changePriorityBug(Priority.MEDIUM);
 
-        System.out.println(task.getPriority());
+        List<String> steps = new ArrayList<>();
+        steps.add("adadad");
+        Member member = new MemberImpl("Gosho");
+
+        Bug bug = new BugImpl(1, "aaaaaaaaaaaaaaaaa", "DESCRITPIONSADA", steps, Priority.HIGH, Severity.MAJOR,member);
+
+        bug.changeStatusBug(StatusBug.DONE);
+
+        System.out.println(bug.getActivityHistoryList().toString());
+
+
+
     }
 
 }
