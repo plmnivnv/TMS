@@ -36,4 +36,5 @@ public class MemberImpl implements Member {
                 NAME_LENGTH_ERROR);
         this.name = name;
     }
+
 }
