@@ -7,4 +7,5 @@ public interface Task extends Identifiable, Commentable {
     void addComment(Comment comment);
 
     void removeComment(Comment comment);
+
 }
