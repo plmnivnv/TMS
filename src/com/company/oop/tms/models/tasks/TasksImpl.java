@@ -23,7 +23,7 @@ public abstract class TasksImpl implements Task {
     public static final String DESCRIPTION_LENGTH_MSG = String.format("Description name must be between %d and %d symbols",
             DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH);
     private final List<Comment> commentList = new ArrayList<>();
-    private List<ActivityHistory>activityHistoryList = new ArrayList<>();
+    private final List<ActivityHistory> activityHistoryList = new ArrayList<>();
     private final int id;
     private String title;
     private String description;

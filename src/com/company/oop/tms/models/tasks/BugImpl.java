@@ -17,8 +17,7 @@ public class BugImpl extends TasksImpl implements Bug {
     private Severity severity;
     private StatusBug statusBug;
     private final Member assignee;
-    private final List<Comment> commentList;
-    private final List<ActivityHistory> activityHistories;
+
 
     public BugImpl(int id, String title, String description,
                    List<String> stepsToProduce,
@@ -31,8 +30,6 @@ public class BugImpl extends TasksImpl implements Bug {
         this.severity = severity;
         this.statusBug = StatusBug.ACTIVE;
         this.assignee = assignee;
-        this.commentList = new ArrayList<>();
-        this.activityHistories = new ArrayList<>();
     }
 
 
