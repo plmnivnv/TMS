@@ -30,13 +30,13 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
 
     @Override
     public void changeStatus(StatusFeedback statusFeedback) {
-        logActivityHistory(String.format("Status changed from %s to %s", statusFeedback, getStatusFeedback()));
+        logActivityHistory(String.format("The status of item with ID: %d changed from %s to %s", getId(), statusFeedback, getStatusFeedback()));
         this.statusFeedback = statusFeedback;
     }
 
     @Override
     public void changeRating(int rating) {
-        logActivityHistory(String.format("Rating changed from %s to %s", rating, getRating()));
+        logActivityHistory(String.format("The rating of item with ID: %d changed from %s to %s",getId(), rating, getRating()));
         this.rating = rating;
     }
 

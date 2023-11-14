@@ -17,7 +17,6 @@ public class BoardImpl implements Board {
             NAME_MAX_LENGTH);
     private String name;
 
-    //TODO - what type of list should we use (Task or more specific);
     private List<Task> taskList;
     private List<ActivityHistory> activityHistoryList;
 

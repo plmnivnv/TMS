@@ -50,19 +50,19 @@ public class StoryImpl extends TasksImpl implements Story {
 
     @Override
     public void changeStatusStory(StatusStory statusStory) {
-        logActivityHistory(String.format("Status changed from %s to %s", statusStory, getStatus()));
+        logActivityHistory(String.format("The status of item with ID: %d changed from %s to %s", getId(), statusStory, getStatus()));
         this.statusStory = statusStory;
     }
 
     @Override
     public void changePriority(Priority priority) {
-        logActivityHistory(String.format("Priority changed from %s to %s", priority, getPriority()));
+        logActivityHistory(String.format("The priority of item with ID: %d changed from %s to %s", getId(), priority, getPriority()));
         this.priority = priority;
     }
 
     @Override
     public void changeSize(Size size) {
-        logActivityHistory(String.format("Size changed from %s to %s", size, getSize()));
+        logActivityHistory(String.format("The size of item with ID: %d changed from %s to %s",getId(), size, getSize()));
         this.size = size;
     }
 }
