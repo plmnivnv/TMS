@@ -22,7 +22,7 @@ public class SystemEngineImpl implements SystemEngine {
     private CommandFactory commandFactory;
     private SystemRepository systemRepository;
 
-    public SystemEngineImpl(CommandFactory commandFactory, SystemRepository systemRepository) {
+    public SystemEngineImpl() {
         this.commandFactory = new CommandFactoryImpl();
         this.systemRepository = new SystemRepositoryImpl();
     }

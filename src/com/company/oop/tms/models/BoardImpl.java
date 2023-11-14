@@ -6,6 +6,7 @@ import com.company.oop.tms.models.tasks.BugImpl;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BoardImpl implements Board {
@@ -15,6 +16,8 @@ public class BoardImpl implements Board {
             NAME_MIN_LENGTH,
             NAME_MAX_LENGTH);
     private String name;
+
+    //TODO - what type of list should we use (Task or more specific);
     private List<Task>taskList;
     private List<ActivityHistory>activityHistoryList;
 
@@ -22,13 +25,32 @@ public class BoardImpl implements Board {
         setName(name);
     }
 
+
+
     private void setName(String name) {
         ValidationHelpers.validateStringLength(name,NAME_MIN_LENGTH,NAME_MAX_LENGTH,NAME_LENGTH_ERROR);
         this.name = name;
     }
 
+
+
+
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public List<Task> getTask() {
+        return new ArrayList<>(taskList);
+    }
+
+    @Override
+    public void addTask(Task task) {
+        taskList.add(task);
+    }
+
+    @Override
+    public void removeTask(Task task) {
+        taskList.remove(task);
     }
 }

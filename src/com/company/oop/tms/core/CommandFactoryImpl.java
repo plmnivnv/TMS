@@ -21,61 +21,60 @@ public class CommandFactoryImpl implements CommandFactory {
         switch (commandType) {
             case CREATEMEMBER:
                 return new CreateMemberCommand(systemRepository);
-            case SHOWMEMBERS:
-                return new ShowAllMembersCommand(systemRepository);
-            case SHOWMEMBERSACTIVITY:
-                return new ShowMembersActivity(systemRepository);
-            case CREATETEAM:
-                return new CreateNewTeamCommand(systemRepository);
-            case SHOWTEAMS:
-                return new ShowAllTeamsCommand(systemRepository);
-            case SHOWTEAMACTIVITY:
-                return new ShowAllTeamActivityCommand(systemRepository);
-            case ADDMEMBER:
-                return new AddMemberToTeamCommand(systemRepository);
-            case SHOWTEAMMEMBERS:
-                return new ShowAllTeamMembersCommand(systemRepository);
-            case CREATEBOARD:
-                return new CreateBoardCommand(systemRepository);
-            case SHOWTEAMBOARDS:
-                return new ShowAllTeamBoardsCommand(systemRepository);
-            case SHOWBOARDACTIVITY:
-                return new ShowBoardActivityCommand(systemRepository);
-            case CREATEBUGINBOARD:
-                return new CreateBugInBoardCommand(systemRepository);
-            case CREATESTORYINBOARD:
-                return new CreateStoryInBoardCommand(systemRepository);
-            case CREATEFEEDBACKINBOARD:
-                return new CreateFeedbackInBoardCommand(systemRepository);
-            case CHANGEBUGSTATUS:
-                return new ChangeBugStatusCommand(systemRepository);
-            case CHANGEBUGSEVERITY:
-                return new ChangeBugSeverityCommand(systemRepository);
-            case CHANGEBUGPRIORITY:
-                return new ChangeBugPriorityCommand(systemRepository);
-            case CHANGESTORYSTATUS:
-                return new ChangeStoryStatusCommand(systemRepository);
-            case CHANGESTORYSIZE:
-                return new ChangeStorySizeCommand(systemRepository);
-            case CHANGESTORYPRIORITY:
-                return new ChangeStoryPriorityCommand(systemRepository);
-            case CHANGEFEEDBACKSTATUS:
-                return new ChangeFeedbackStatusCommand(systemRepository);
-            case CHANGEFEEDBACKRATING:
-                return new ChangeFeedbackRatingCommand(systemRepository);
-            case ASSIGNBUG:
-                return new AssignBugCommand(systemRepository);
-            case UNASSIGNBUG:
-                return new UnassignBugCommand(systemRepository);
-            case ASSIGNSTORY:
-                return new AssignStoryCommand(systemRepository);
-            case UNASSIGNSTORY:
-                return new UnassignStoryCommand(systemRepository);
-            case ADDCOMMENTTOTASK:
-                return new AddCommentToTaskCommand(systemRepository);
+//            case SHOWMEMBERS:
+////                return new ShowAllMembersCommand(systemRepository);
+//            case SHOWMEMBERSACTIVITY:
+//                return new ShowMembersActivity(systemRepository);
+//            case CREATETEAM:
+//                return new CreateNewTeamCommand(systemRepository);
+//            case SHOWTEAMS:
+//                return new ShowAllTeamsCommand(systemRepository);
+//            case SHOWTEAMACTIVITY:
+//                return new ShowAllTeamActivityCommand(systemRepository);
+//            case ADDMEMBER:
+//                return new AddMemberToTeamCommand(systemRepository);
+//            case SHOWTEAMMEMBERS:
+//                return new ShowAllTeamMembersCommand(systemRepository);
+//            case CREATEBOARD:
+//                return new CreateBoardCommand(systemRepository);
+//            case SHOWTEAMBOARDS:
+//                return new ShowAllTeamBoardsCommand(systemRepository);
+//            case SHOWBOARDACTIVITY:
+//                return new ShowBoardActivityCommand(systemRepository);
+//            case CREATEBUGINBOARD:
+//                return new CreateBugInBoardCommand(systemRepository);
+//            case CREATESTORYINBOARD:
+//                return new CreateStoryInBoardCommand(systemRepository);
+//            case CREATEFEEDBACKINBOARD:
+//                return new CreateFeedbackInBoardCommand(systemRepository);
+//            case CHANGEBUGSTATUS:
+//                return new ChangeBugStatusCommand(systemRepository);
+//            case CHANGEBUGSEVERITY:
+//                return new ChangeBugSeverityCommand(systemRepository);
+//            case CHANGEBUGPRIORITY:
+//                return new ChangeBugPriorityCommand(systemRepository);
+//            case CHANGESTORYSTATUS:
+//                return new ChangeStoryStatusCommand(systemRepository);
+//            case CHANGESTORYSIZE:
+//                return new ChangeStorySizeCommand(systemRepository);
+//            case CHANGESTORYPRIORITY:
+//                return new ChangeStoryPriorityCommand(systemRepository);
+//            case CHANGEFEEDBACKSTATUS:
+//                return new ChangeFeedbackStatusCommand(systemRepository);
+//            case CHANGEFEEDBACKRATING:
+//                return new ChangeFeedbackRatingCommand(systemRepository);
+//            case ASSIGNBUG:
+//                return new AssignBugCommand(systemRepository);
+//            case UNASSIGNBUG:
+//                return new UnassignBugCommand(systemRepository);
+//            case ASSIGNSTORY:
+//                return new AssignStoryCommand(systemRepository);
+//            case UNASSIGNSTORY:
+//                return new UnassignStoryCommand(systemRepository);
+//            case ADDCOMMENTTOTASK:
+//                return new AddCommentToTaskCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
-
         }
 
     }
