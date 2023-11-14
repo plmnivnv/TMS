@@ -54,14 +54,14 @@ public class BugImpl extends TasksImpl implements Bug {
         return severity;
     }
 
-
     @Override
     public void changeStatusBug(StatusBug statusBug) {
-        if(this.statusBug.equals(INITIAL_STATUS)){
+        StatusBug currentStatus = getStatusBug();
+        if(!this.statusBug.equals(INITIAL_STATUS)){
             throw new IllegalArgumentException(String.format("Status is already %s",statusBug));
         }
-        logActivityHistory(String.format("Status changed from %s to %s", statusBug, getStatusBug()));
         this.statusBug = statusBug;
+        logActivityHistory(String.format("Status changed from %s to %s", currentStatus, getStatusBug()));
     }
 
     @Override

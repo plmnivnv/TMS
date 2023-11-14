@@ -1,6 +1,6 @@
 package com.company.oop.tms.core.contracts;
 
-public interface Engine {
+public interface SystemEngine {
 
     void start();
 

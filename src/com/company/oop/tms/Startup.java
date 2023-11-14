@@ -21,10 +21,15 @@ public class Startup {
 
         BugImpl bug = new BugImpl(1, "aaaaaaaaaaaaaaaaa", "DESCRITPIONSADA", steps, Priority.HIGH, Severity.MAJOR,member);
 
+        BugImpl bug2 = new BugImpl(2, "aaaaaaaaaaaabaaaa", "DESCRITPIONaADA", steps, Priority.HIGH, Severity.MAJOR,member);
+
 //        bug.changeStatusBug(StatusBug.DONE);
 //        System.out.println(bug.getActivityHistoryList());
         bug.changeStatusBug(StatusBug.DONE);
-        System.out.println(bug.getActivityHistoryList());
+//        bug.changeStatusBug(StatusBug.ACTIVE);
+        bug2.changeStatusBug(StatusBug.DONE);
+
+        System.out.println(bug2.getActivityHistoryList());
 
 
 

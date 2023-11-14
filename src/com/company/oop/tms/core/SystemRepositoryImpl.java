@@ -1,6 +1,8 @@
 package com.company.oop.tms.core;
 
-public class SystemRepositoryImpl {
+import com.company.oop.tms.core.contracts.SystemRepository;
+
+public class SystemRepositoryImpl implements SystemRepository {
 
 
 
