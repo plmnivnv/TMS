@@ -18,27 +18,27 @@ public class BoardImpl implements Board {
     private String name;
 
     //TODO - what type of list should we use (Task or more specific);
-    private List<Task>taskList;
-    private List<ActivityHistory>activityHistoryList;
+    private List<Task> taskList;
+    private List<ActivityHistory> activityHistoryList;
 
-    public BoardImpl(String name){
+    public BoardImpl(String name) {
         setName(name);
+        taskList = new ArrayList<>();
+        activityHistoryList = new ArrayList<>();
     }
-
 
 
     private void setName(String name) {
-        ValidationHelpers.validateStringLength(name,NAME_MIN_LENGTH,NAME_MAX_LENGTH,NAME_LENGTH_ERROR);
+        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_LENGTH_ERROR);
         this.name = name;
     }
-
-
 
 
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public List<Task> getTask() {
         return new ArrayList<>(taskList);

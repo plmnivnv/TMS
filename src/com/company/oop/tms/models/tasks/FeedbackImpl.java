@@ -13,7 +13,7 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
     private StatusFeedback statusFeedback;
 
 
-    protected FeedbackImpl(int id, String title, String description, int rating) {
+    public FeedbackImpl(int id, String title, String description, int rating) {
         super(id, title, description);
         this.statusFeedback = StatusFeedback.NEW;
         this.rating = rating;

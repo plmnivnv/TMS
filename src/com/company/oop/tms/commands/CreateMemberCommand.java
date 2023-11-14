@@ -1,9 +1,7 @@
 package com.company.oop.tms.commands;
 
 import com.company.oop.tms.commands.contracts.Command;
-import com.company.oop.tms.core.SystemRepositoryImpl;
 import com.company.oop.tms.core.contracts.SystemRepository;
-import com.company.oop.tms.models.MemberImpl;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.utils.ValidationHelpers;
 

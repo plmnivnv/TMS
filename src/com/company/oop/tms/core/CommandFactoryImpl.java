@@ -25,24 +25,24 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowAllMembersCommand(systemRepository);
 //            case SHOWMEMBERSACTIVITY:
 //                return new ShowMembersActivity(systemRepository);
-//            case CREATETEAM:
-//                return new CreateNewTeamCommand(systemRepository);
-//            case SHOWTEAMS:
-//                return new ShowAllTeamsCommand(systemRepository);
+            case CREATETEAM:
+                return new CreateNewTeamCommand(systemRepository);
+            case SHOWTEAMS:
+                return new ShowAllTeamsCommand(systemRepository);
 //            case SHOWTEAMACTIVITY:
 //                return new ShowAllTeamActivityCommand(systemRepository);
 //            case ADDMEMBER:
 //                return new AddMemberToTeamCommand(systemRepository);
 //            case SHOWTEAMMEMBERS:
 //                return new ShowAllTeamMembersCommand(systemRepository);
-//            case CREATEBOARD:
-//                return new CreateBoardCommand(systemRepository);
+            case CREATEBOARD:
+                return new CreateBoardCommand(systemRepository);
 //            case SHOWTEAMBOARDS:
 //                return new ShowAllTeamBoardsCommand(systemRepository);
 //            case SHOWBOARDACTIVITY:
 //                return new ShowBoardActivityCommand(systemRepository);
-//            case CREATEBUGINBOARD:
-//                return new CreateBugInBoardCommand(systemRepository);
+            case CREATEBUGINBOARD:
+                return new CreateBugInBoardCommand(systemRepository);
 //            case CREATESTORYINBOARD:
 //                return new CreateStoryInBoardCommand(systemRepository);
 //            case CREATEFEEDBACKINBOARD:

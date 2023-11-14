@@ -1,5 +1,7 @@
 package com.company.oop.tms.utils;
 
+import com.company.oop.tms.exceptions.InvalidUserInputException;
+
 import java.util.List;
 
 public class ValidationHelpers {
@@ -8,7 +10,7 @@ public class ValidationHelpers {
 
     public static void validateValueInRange(double value, double min, double max, String errorMessage) {
         if (value < min || value > max){
-            throw new IllegalArgumentException(errorMessage);
+            throw new InvalidUserInputException(errorMessage);
         }
     }
 

@@ -1,14 +1,11 @@
 package com.company.oop.tms.models.tasks;
 
-import com.company.oop.tms.models.contracts.ActivityHistory;
-import com.company.oop.tms.models.contracts.Comment;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Bug;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
 import com.company.oop.tms.models.tasks.enums.StatusBug;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BugImpl extends TasksImpl implements Bug {

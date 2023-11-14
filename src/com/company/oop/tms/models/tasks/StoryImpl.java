@@ -20,7 +20,7 @@ public class StoryImpl extends TasksImpl implements Story {
 
 
 
-    protected StoryImpl(int id, String title, String description, Priority priority, Size size,Member assignee) {
+    public StoryImpl(int id, String title, String description, Priority priority, Size size,Member assignee) {
         super(id, title, description);
         this.priority = priority;
         this.size = size;
