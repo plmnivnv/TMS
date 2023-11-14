@@ -23,18 +23,22 @@ public class SystemRepositoryImpl implements SystemRepository {
     public SystemRepositoryImpl() {
         nextId = 0;
     }
+
     @Override
     public List<Member> getMemberList() {
         return new ArrayList<>(memberList);
     }
+
     @Override
     public List<Team> getTeamList() {
         return new ArrayList<>(teamList);
     }
+
     @Override
     public List<Board> getBoardList() {
         return new ArrayList<>(boardList);
     }
+
     @Override
     public List<Task> getTaskList() {
         return new ArrayList<>(taskList);
@@ -43,26 +47,26 @@ public class SystemRepositoryImpl implements SystemRepository {
     @Override
     public Member createMember(String name) {
         Member member = new MemberImpl(name);
-        if (memberList.isEmpty()){
+        if (memberList.isEmpty()) {
             memberList.add(member);
             return member;
         } else {
-           if(!findExistingName(memberList, name)){
-               memberList.add(member);
-               return member;
-           }
-           throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
+            if (!findExistingName(memberList, name)) {
+                memberList.add(member);
+                return member;
+            }
+            throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
         }
     }
 
     @Override
     public Team createTeam(String name) {
         Team team = new TeamImpl(name);
-        if (teamList.isEmpty()){
+        if (teamList.isEmpty()) {
             teamList.add(team);
             return team;
         } else {
-            if(!findExistingName(teamList, name)){
+            if (!findExistingName(teamList, name)) {
                 teamList.add(team);
                 return team;
             }
@@ -80,10 +84,10 @@ public class SystemRepositoryImpl implements SystemRepository {
         return null;
     }
 
-    private  <T extends Nameable> boolean findExistingName(List<T> elements, String name){
+    private <T extends Nameable> boolean findExistingName(List<T> elements, String name) {
         boolean isFound = false;
-        for (T element: elements) {
-            if(element.getName().equals(name)){
+        for (T element : elements) {
+            if (element.getName().equals(name)) {
                 isFound = true;
             }
         }

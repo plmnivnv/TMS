@@ -11,7 +11,7 @@ public class MemberImpl implements Member {
 
     private static final int NAME_MIN_LENGTH = 5;
     private static final int NAME_MAX_LENGTH = 15;
-    private static final String NAME_LENGTH_ERROR = String.format("Team's name must be between %d and %d symbols",
+    private static final String NAME_LENGTH_ERROR = String.format("Member name must be between %d and %d symbols",
             NAME_MIN_LENGTH,
             NAME_MAX_LENGTH);
 
