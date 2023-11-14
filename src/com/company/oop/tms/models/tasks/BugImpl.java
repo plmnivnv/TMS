@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BugImpl extends TasksImpl implements Bug {
+    public static final StatusBug INITIAL_STATUS = StatusBug.ACTIVE;
     private List<String> stepsToProduce;
     private Priority priority;
     private Severity severity;
@@ -32,10 +33,10 @@ public class BugImpl extends TasksImpl implements Bug {
         this.assignee = assignee;
     }
 
-
+// по-добра идея е да връща мембър не стринга
     @Override
-    public String getAssignee() {
-        return assignee.getName();
+    public Member getAssignee(){
+        return assignee;
     }
 
     @Override
@@ -56,6 +57,9 @@ public class BugImpl extends TasksImpl implements Bug {
 
     @Override
     public void changeStatusBug(StatusBug statusBug) {
+        if(this.statusBug.equals(INITIAL_STATUS)){
+            throw new IllegalArgumentException(String.format("Status is already %s",statusBug));
+        }
         logActivityHistory(String.format("Status changed from %s to %s", statusBug, getStatusBug()));
         this.statusBug = statusBug;
     }
@@ -69,6 +73,4 @@ public class BugImpl extends TasksImpl implements Bug {
     public void changeSeverityBug(Severity severity) {
         this.severity = severity;
     }
-
-
 }

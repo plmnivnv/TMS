@@ -19,11 +19,12 @@ public class Startup {
         steps.add("adadad");
         Member member = new MemberImpl("Gosho");
 
-        Bug bug = new BugImpl(1, "aaaaaaaaaaaaaaaaa", "DESCRITPIONSADA", steps, Priority.HIGH, Severity.MAJOR,member);
+        BugImpl bug = new BugImpl(1, "aaaaaaaaaaaaaaaaa", "DESCRITPIONSADA", steps, Priority.HIGH, Severity.MAJOR,member);
 
+//        bug.changeStatusBug(StatusBug.DONE);
+//        System.out.println(bug.getActivityHistoryList());
         bug.changeStatusBug(StatusBug.DONE);
-
-        System.out.println(bug.getActivityHistoryList().toString());
+        System.out.println(bug.getActivityHistoryList());
 
 
 

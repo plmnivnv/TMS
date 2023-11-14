@@ -28,7 +28,7 @@ public abstract class TasksImpl implements Task {
     private String title;
     private String description;
 
-    protected TasksImpl(int id,String title,String description) {
+    protected TasksImpl(int id, String title, String description) {
         this.id = id;
         setTitle(title);
         setDescription(description);
@@ -82,7 +82,7 @@ public abstract class TasksImpl implements Task {
         commentList.remove(comment);
     }
 
-    public void logActivityHistory(String activity){
+    public void logActivityHistory(String activity) {
         activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 }
