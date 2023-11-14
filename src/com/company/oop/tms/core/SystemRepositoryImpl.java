@@ -61,6 +61,7 @@ public class SystemRepositoryImpl implements SystemRepository {
     }
 
     private  <T extends Nameable> T findExistingName(List<T> elements, String name){
+        boolean isFound = false;
         for (T element: elements) {
             if(!element.getName().equals(name)){
                 return element;
