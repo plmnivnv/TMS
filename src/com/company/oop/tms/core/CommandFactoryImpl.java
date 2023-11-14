@@ -21,8 +21,8 @@ public class CommandFactoryImpl implements CommandFactory {
         switch (commandType) {
             case CREATEMEMBER:
                 return new CreateMemberCommand(systemRepository);
-//            case SHOWMEMBERS:
-////                return new ShowAllMembersCommand(systemRepository);
+            case SHOWMEMBERS:
+                return new ShowAllMembersCommand(systemRepository);
 //            case SHOWMEMBERSACTIVITY:
 //                return new ShowMembersActivity(systemRepository);
 //            case CREATETEAM:

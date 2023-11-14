@@ -11,7 +11,6 @@ import java.util.List;
 
 public class SystemRepositoryImpl implements SystemRepository {
 
-    public static final String MEMBER_WITH_NAME_S_ALREADY_EXISTS = "Member with name %s already exists!";
     public static final String NAME_ALREADY_EXIST = "%s name already exist";
     private int nextId;
 
@@ -24,6 +23,22 @@ public class SystemRepositoryImpl implements SystemRepository {
     public SystemRepositoryImpl() {
         nextId = 0;
     }
+    @Override
+    public List<Member> getMemberList() {
+        return new ArrayList<>(memberList);
+    }
+    @Override
+    public List<Team> getTeamList() {
+        return new ArrayList<>(teamList);
+    }
+    @Override
+    public List<Board> getBoardList() {
+        return new ArrayList<>(boardList);
+    }
+    @Override
+    public List<Task> getTaskList() {
+        return new ArrayList<>(taskList);
+    }
 
     @Override
     public Member createMember(String name) {
@@ -32,22 +47,27 @@ public class SystemRepositoryImpl implements SystemRepository {
             memberList.add(member);
             return member;
         } else {
-            findExistingName(memberList, name);
-            memberList.add(member);
-            return member;
+           if(!findExistingName(memberList, name)){
+               memberList.add(member);
+               return member;
+           }
+           throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
         }
     }
 
     @Override
     public Team createTeam(String name) {
-        for (Team element : teamList) {
-            if (!element.getName().equals(name)){
-                Team team = new TeamImpl(name);
+        Team team = new TeamImpl(name);
+        if (teamList.isEmpty()){
+            teamList.add(team);
+            return team;
+        } else {
+            if(!findExistingName(teamList, name)){
                 teamList.add(team);
                 return team;
             }
+            throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
         }
-        throw new IllegalArgumentException(String.format(MEMBER_WITH_NAME_S_ALREADY_EXISTS, name));
     }
 
     @Override
@@ -60,13 +80,14 @@ public class SystemRepositoryImpl implements SystemRepository {
         return null;
     }
 
-    private  <T extends Nameable> T findExistingName(List<T> elements, String name){
+    private  <T extends Nameable> boolean findExistingName(List<T> elements, String name){
         boolean isFound = false;
         for (T element: elements) {
-            if(!element.getName().equals(name)){
-                return element;
+            if(element.getName().equals(name)){
+                isFound = true;
             }
         }
-        throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
+        return isFound;
+//        throw new IllegalArgumentException(String.format(NAME_ALREADY_EXIST, name));
     }
 }
