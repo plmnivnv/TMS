@@ -63,14 +63,10 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new ChangeFeedbackStatusCommand(systemRepository);
 //            case CHANGEFEEDBACKRATING:
 //                return new ChangeFeedbackRatingCommand(systemRepository);
-//            case ASSIGNBUG:
-//                return new AssignBugCommand(systemRepository);
-//            case UNASSIGNBUG:
-//                return new UnassignBugCommand(systemRepository);
-//            case ASSIGNSTORY:
-//                return new AssignStoryCommand(systemRepository);
-//            case UNASSIGNSTORY:
-//                return new UnassignStoryCommand(systemRepository);
+            case ASSIGNTASK:
+                return new AssignTaskCommand(systemRepository);
+            case UNASSIGNTASK:
+                return new UnAssignTaskCommand(systemRepository);
             case ADDCOMMENTTOTASK:
                 return new AddCommentToTaskCommand(systemRepository);
             default:

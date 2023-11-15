@@ -7,6 +7,8 @@ import com.company.oop.tms.utils.ValidationHelpers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class MemberImpl implements Member {
 
@@ -15,6 +17,8 @@ public class MemberImpl implements Member {
     private static final String NAME_LENGTH_ERROR = String.format("Member name must be between %d and %d symbols",
             NAME_MIN_LENGTH,
             NAME_MAX_LENGTH);
+    public static final String NO_TASKS_MESSAGE = "There is no tasks!";
+    public static final String NON_EXISTING_TASK_MESSAGE = "There is no such task to remove!";
 
     private String name;
     private List<Task> taskList;
@@ -45,6 +49,27 @@ public class MemberImpl implements Member {
     public List<ActivityHistory> getActivityHistoryList() {
         return new ArrayList<>(activityHistoryList);
     }
+    @Override
+    public void assignTask(Task task){
+        taskList.add(task);
+    }
 
+    @Override
+    public void unAssignTask(Task task) {
+//        if (taskList.isEmpty()){
+//            throw new NoSuchElementException(NO_TASKS_MESSAGE);
+//        }
+//        if (!taskList.contains(task)){
+//            throw new NoSuchElementException(NON_EXISTING_TASK_MESSAGE);
+//        }
+        taskList.remove(task);
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MemberImpl member = (MemberImpl) o;
+        return Objects.equals(taskList, member.taskList);
+    }
 }

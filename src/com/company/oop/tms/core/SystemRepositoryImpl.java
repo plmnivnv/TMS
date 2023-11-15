@@ -32,7 +32,7 @@ public class SystemRepositoryImpl implements SystemRepository {
 
 
     public SystemRepositoryImpl() {
-        nextId = 0;
+        nextId = 1;
     }
 
     @Override
@@ -57,21 +57,24 @@ public class SystemRepositoryImpl implements SystemRepository {
 
     @Override
     public Bug createBug(String title, String description, List<String> stepsToProduce, Priority priority, Severity severity, Member assignee) {
-        Bug bug = new BugImpl(++nextId, title, description, stepsToProduce, priority, severity, assignee);
+        Bug bug = new BugImpl(nextId, title, description, stepsToProduce, priority, severity, assignee);
+        nextId++;
         taskList.add(bug);
         return bug;
     }
 
     @Override
     public Story createStory(String title, String description, Priority priority, Size size, Member assignee) {
-        Story story = new StoryImpl(++nextId, title, description, priority, size, assignee);
+        Story story = new StoryImpl(nextId, title, description, priority, size, assignee);
+        nextId++;
         taskList.add(story);
         return story;
     }
 
     @Override
     public Feedback createFeedback(String title, String description, int rating) {
-        Feedback feedback = new FeedbackImpl(++nextId, title, description, rating);
+        Feedback feedback = new FeedbackImpl(nextId, title, description, rating);
+        nextId++;
         taskList.add(feedback);
         return feedback;
     }
