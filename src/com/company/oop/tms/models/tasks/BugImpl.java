@@ -10,7 +10,7 @@ import java.util.List;
 
 public class BugImpl extends TasksImpl implements Bug {
     public static final StatusBug INITIAL_STATUS = StatusBug.ACTIVE;
-    private List<String> stepsToProduce;
+    private final List<String> stepsToProduce;
     private Priority priority;
     private Severity severity;
     private StatusBug statusBug;
@@ -30,7 +30,7 @@ public class BugImpl extends TasksImpl implements Bug {
         this.assignee = assignee;
     }
 
-// по-добра идея е да връща мембър не стринга
+
     @Override
     public Member getAssignee(){
         return assignee;

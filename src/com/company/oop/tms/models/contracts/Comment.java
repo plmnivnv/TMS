@@ -4,7 +4,7 @@ public interface Comment {
 
     String getContent();
 
-    String getAuthor();
+    Member getAuthor();
 
 
 }

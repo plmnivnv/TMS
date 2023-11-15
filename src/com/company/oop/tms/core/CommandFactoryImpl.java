@@ -71,8 +71,8 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new AssignStoryCommand(systemRepository);
 //            case UNASSIGNSTORY:
 //                return new UnassignStoryCommand(systemRepository);
-//            case ADDCOMMENTTOTASK:
-//                return new AddCommentToTaskCommand(systemRepository);
+            case ADDCOMMENTTOTASK:
+                return new AddCommentToTaskCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
         }

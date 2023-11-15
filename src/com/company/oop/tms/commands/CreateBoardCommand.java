@@ -28,7 +28,7 @@ public class CreateBoardCommand implements Command {
 
     private String createBoard(String name, String teamName){
         Board board = systemRepository.createBoard(name);
-        Team team = systemRepository.createTeam(teamName);
+        Team team = systemRepository.findElementByName(systemRepository.getTeamList(), teamName, "Team");
         team.addBoard(board);
 
         return String.format(BOARD_CREATE_MESSAGE, name);

@@ -1,11 +1,7 @@
 package com.company.oop.tms.models.tasks;
 
-import com.company.oop.tms.models.contracts.ActivityHistory;
-import com.company.oop.tms.models.contracts.Comment;
 import com.company.oop.tms.models.tasks.contracts.Feedback;
 import com.company.oop.tms.models.tasks.enums.StatusFeedback;
-
-import java.util.List;
 
 public class FeedbackImpl extends TasksImpl implements Feedback {
 
