@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ChangeBugPriorityCommand implements Command {
 
+    public static final String PRIORITY_CHANGE_MESSAGE = "Priority of Bug with ID %d changed to %s.";
     SystemRepository systemRepository;
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
 
@@ -29,6 +30,6 @@ public class ChangeBugPriorityCommand implements Command {
     private String changeBugPriority(int id, Priority priority) {
         Bug bug = systemRepository.findElementById(systemRepository.getBugList(), id, "Bug");
         bug.changePriorityBug(priority);
-        return String.format("Priority of Bug with ID %d changed to %s.", bug.getId(), bug.getPriority());
+        return String.format(PRIORITY_CHANGE_MESSAGE, bug.getId(), bug.getPriority());
     }
 }

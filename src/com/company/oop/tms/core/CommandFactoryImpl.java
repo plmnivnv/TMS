@@ -43,14 +43,14 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new CreateStoryInBoardCommand(systemRepository);
 //            case CREATEFEEDBACKINBOARD:
 //                return new CreateFeedbackInBoardCommand(systemRepository);
-//            case CHANGEBUGSTATUS:
-//                return new ChangeBugStatusCommand(systemRepository);
+            case CHANGEBUGSTATUS:
+                return new ChangeBugStatusCommand(systemRepository);
             case CHANGEBUGSEVERITY:
                 return new ChangeBugSeverityCommand(systemRepository);
             case CHANGEBUGPRIORITY:
                 return new ChangeBugPriorityCommand(systemRepository);
-            case CHANGESTORYSTATUS:
-                return new ChangeStoryStatusCommand(systemRepository);
+//            case CHANGESTORYSTATUS:
+//                return new ChangeStoryStatusCommand(systemRepository);
 //            case CHANGESTORYSIZE:
 //                return new ChangeStorySizeCommand(systemRepository);
 //            case CHANGESTORYPRIORITY:

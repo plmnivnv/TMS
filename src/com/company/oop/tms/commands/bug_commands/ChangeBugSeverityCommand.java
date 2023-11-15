@@ -24,10 +24,10 @@ public class ChangeBugSeverityCommand implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         int id = Integer.parseInt(parameters.get(0));
         Severity severity = ParsingHelpers.tryParseEnum(parameters.get(1), Severity.class);
-        return changeBugPriority(id, severity);
+        return changeBugSeverity(id, severity);
     }
 
-    private String changeBugPriority(int id, Severity severity) {
+    private String changeBugSeverity(int id, Severity severity) {
         Bug bug = systemRepository.findElementById(systemRepository.getBugList(), id, "Bug");
         bug.changeSeverityBug(severity);
         return String.format(SEVERITY_CHANGE_MESSAGE, bug.getId(), bug.getSeverity());
