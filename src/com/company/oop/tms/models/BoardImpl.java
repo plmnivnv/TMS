@@ -16,7 +16,6 @@ public class BoardImpl implements Board {
             NAME_MIN_LENGTH,
             NAME_MAX_LENGTH);
     private String name;
-
     private List<Task> taskList;
     private List<ActivityHistory> activityHistoryList;
 

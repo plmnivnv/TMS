@@ -1,5 +1,6 @@
 package com.company.oop.tms.models;
 
+import com.company.oop.tms.models.contracts.ActivityHistory;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
@@ -17,16 +18,20 @@ public class MemberImpl implements Member {
 
     private String name;
     private List<Task> taskList;
+    private List<ActivityHistory> activityHistoryList;
 
     public MemberImpl(String name) {
         setName(name);
         taskList = new ArrayList<>();
+        activityHistoryList = new ArrayList<>();
     }
 
     @Override
     public String getName() {
         return name;
     }
+
+
 
     public void setName(String name) {
         ValidationHelpers.validateStringLength(name,
@@ -35,5 +40,11 @@ public class MemberImpl implements Member {
                 NAME_LENGTH_ERROR);
         this.name = name;
     }
+
+    @Override
+    public List<ActivityHistory> getActivityHistoryList() {
+        return new ArrayList<>(activityHistoryList);
+    }
+
 
 }
