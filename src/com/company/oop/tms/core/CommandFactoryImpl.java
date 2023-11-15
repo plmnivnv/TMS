@@ -33,8 +33,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ShowAllTeamActivityCommand(systemRepository);
             case ADDMEMBER:
                 return new AddMemberToTeamCommand(systemRepository);
-//            case SHOWTEAMMEMBERS:
-//                return new ShowAllTeamMembersCommand(systemRepository);
+            case SHOWTEAMMEMBERS:
+                return new ShowAllTeamMembersCommand(systemRepository);
             case CREATEBOARD:
                 return new CreateBoardCommand(systemRepository);
             case SHOWTEAMBOARDS:
