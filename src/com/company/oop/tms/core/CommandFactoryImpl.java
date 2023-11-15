@@ -5,6 +5,7 @@ import com.company.oop.tms.commands.bug_commands.*;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
 import com.company.oop.tms.commands.feedback_commands.*;
+import com.company.oop.tms.commands.story_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
 import com.company.oop.tms.core.contracts.SystemRepository;
 import com.company.oop.tms.utils.ParsingHelpers;
@@ -40,8 +41,8 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new ShowBoardActivityCommand(systemRepository);
             case CREATEBUGINBOARD:
                 return new CreateBugInBoardCommand(systemRepository);
-//            case CREATESTORYINBOARD:
-//                return new CreateStoryInBoardCommand(systemRepository);
+            case CREATESTORYINBOARD:
+                return new CreateStoryInBoardCommand(systemRepository);
             case CREATEFEEDBACKINBOARD:
                 return new CreateFeedbackInBoardCommand(systemRepository);
             case CHANGEBUGSTATUS:
@@ -50,12 +51,12 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ChangeBugSeverityCommand(systemRepository);
             case CHANGEBUGPRIORITY:
                 return new ChangeBugPriorityCommand(systemRepository);
-//            case CHANGESTORYSTATUS:
-//                return new ChangeStoryStatusCommand(systemRepository);
-//            case CHANGESTORYSIZE:
-//                return new ChangeStorySizeCommand(systemRepository);
-//            case CHANGESTORYPRIORITY:
-//                return new ChangeStoryPriorityCommand(systemRepository);
+            case CHANGESTORYSTATUS:
+                return new ChangeStoryStatusCommand(systemRepository);
+            case CHANGESTORYSIZE:
+                return new ChangeStorySizeCommand(systemRepository);
+            case CHANGESTORYPRIORITY:
+                return new ChangeStoryPriorityCommand(systemRepository);
             case CHANGEFEEDBACKSTATUS:
                 return new ChangeFeedbackStatusCommand(systemRepository);
             case CHANGEFEEDBACKRATING:

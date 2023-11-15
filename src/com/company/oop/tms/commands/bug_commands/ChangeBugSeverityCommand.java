@@ -3,7 +3,6 @@ package com.company.oop.tms.commands.bug_commands;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.core.contracts.SystemRepository;
 import com.company.oop.tms.models.tasks.contracts.Bug;
-import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
 import com.company.oop.tms.utils.ParsingHelpers;
 import com.company.oop.tms.utils.ValidationHelpers;

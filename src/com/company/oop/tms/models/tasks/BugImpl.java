@@ -14,7 +14,7 @@ public class BugImpl extends TasksImpl implements Bug {
     public static final String PRIORITY_CHANGED_MESSAGE = "Priority was changed from %s to %s.";
     public static final String SEVERITY_CHANGED_MESSAGE = "Severity was changed from %s to %s.";
     public static final String STATUS_CHANGED_MESSAGE = "Status changed from %s to %s.";
-    public static final String STASUS_ERROR_MESSAGE = "Status is already %s.";
+    public static final String STATUS_ERROR_MESSAGE = "Status is already %s.";
     public static final String PRIORITY_ERROR_MESSAGE = "Priority is already at %s";
     public static final String SEVERITY_ERROR_MESSAGE = "Severity is already at %s";
     private final List<String> stepsToProduce;
@@ -62,7 +62,7 @@ public class BugImpl extends TasksImpl implements Bug {
     public void changeStatusBug(StatusBug statusBug) {
         StatusBug currentStatus = getStatusBug();
         if(!this.statusBug.equals(INITIAL_STATUS)){
-            throw new IllegalArgumentException(String.format(STASUS_ERROR_MESSAGE,statusBug));
+            throw new IllegalArgumentException(String.format(STATUS_ERROR_MESSAGE,statusBug));
         }
         this.statusBug = statusBug;
         logActivityHistory(String.format(STATUS_CHANGED_MESSAGE, currentStatus, getStatusBug()));
