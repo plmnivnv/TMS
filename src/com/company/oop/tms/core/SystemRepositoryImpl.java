@@ -61,7 +61,7 @@ public class SystemRepositoryImpl implements SystemRepository {
     @Override
     public Bug createBug(String title, String description, List<String> stepsToProduce, Priority priority, Severity severity, Member assignee) {
         Bug bug = new BugImpl(nextId, title, description, stepsToProduce, priority, severity, assignee);
-        nextId++;
+        ++nextId;
         taskList.add(bug);
         bugList.add(bug);
         return bug;
@@ -70,7 +70,7 @@ public class SystemRepositoryImpl implements SystemRepository {
     @Override
     public Story createStory(String title, String description, Priority priority, Size size, Member assignee) {
         Story story = new StoryImpl(nextId, title, description, priority, size, assignee);
-        nextId++;
+        ++nextId;
         taskList.add(story);
         storyList.add(story);
         return story;
@@ -91,7 +91,7 @@ public class SystemRepositoryImpl implements SystemRepository {
     @Override
     public Feedback createFeedback(String title, String description, int rating) {
         Feedback feedback = new FeedbackImpl(nextId, title, description, rating);
-        nextId++;
+        ++nextId;
         taskList.add(feedback);
         feedbackList.add(feedback);
         return feedback;

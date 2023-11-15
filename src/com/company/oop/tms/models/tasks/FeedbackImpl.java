@@ -1,10 +1,15 @@
 package com.company.oop.tms.models.tasks;
 
+import com.company.oop.tms.exceptions.InvalidUserInputException;
 import com.company.oop.tms.models.tasks.contracts.Feedback;
 import com.company.oop.tms.models.tasks.enums.StatusFeedback;
 
 public class FeedbackImpl extends TasksImpl implements Feedback {
 
+    public static final String STATUS_ERROR_MESSAGE = "Status is already at %s";
+    public static final String STATUS_CHANGE_MESSAGE = "The status of item with ID: %d changed from %s to %s";
+    public static final String RATING_ERROR_MESSAGE = "Rating is already %d.";
+    public static final String RATING_CHANGED_MESSAGE = "The rating of item with ID: %d changed from %s to %s";
     private int rating;
     private StatusFeedback statusFeedback;
 
@@ -14,11 +19,11 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
         this.statusFeedback = StatusFeedback.NEW;
         this.rating = rating;
     }
-
+    @Override
     public StatusFeedback getStatusFeedback() {
         return statusFeedback;
     }
-
+    @Override
     public int getRating() {
         return rating;
     }
@@ -26,13 +31,24 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
 
     @Override
     public void changeStatus(StatusFeedback statusFeedback) {
-        logActivityHistory(String.format("The status of item with ID: %d changed from %s to %s", getId(), statusFeedback, getStatusFeedback()));
+        StatusFeedback currentStatus = getStatusFeedback();
+        if (statusFeedback.equals(getStatusFeedback())) {
+            throw new InvalidUserInputException(String.format(STATUS_ERROR_MESSAGE, getStatusFeedback()));
+        }
+        logActivityHistory(String.format(STATUS_CHANGE_MESSAGE,
+                getId(),
+                currentStatus,
+                getStatusFeedback()));
         this.statusFeedback = statusFeedback;
     }
 
     @Override
     public void changeRating(int rating) {
-        logActivityHistory(String.format("The rating of item with ID: %d changed from %s to %s",getId(), rating, getRating()));
+        int currentRating = getRating();
+        if (currentRating == getRating()){
+            throw new InvalidUserInputException(String.format(RATING_ERROR_MESSAGE,getRating()));
+        }
+        logActivityHistory(String.format(RATING_CHANGED_MESSAGE, getId(), currentRating, getRating()));
         this.rating = rating;
     }
 

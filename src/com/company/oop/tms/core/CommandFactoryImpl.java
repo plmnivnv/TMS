@@ -4,6 +4,7 @@ import com.company.oop.tms.commands.*;
 import com.company.oop.tms.commands.bug_commands.*;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
+import com.company.oop.tms.commands.feedback_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
 import com.company.oop.tms.core.contracts.SystemRepository;
 import com.company.oop.tms.utils.ParsingHelpers;
@@ -41,8 +42,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateBugInBoardCommand(systemRepository);
 //            case CREATESTORYINBOARD:
 //                return new CreateStoryInBoardCommand(systemRepository);
-//            case CREATEFEEDBACKINBOARD:
-//                return new CreateFeedbackInBoardCommand(systemRepository);
+            case CREATEFEEDBACKINBOARD:
+                return new CreateFeedbackInBoardCommand(systemRepository);
             case CHANGEBUGSTATUS:
                 return new ChangeBugStatusCommand(systemRepository);
             case CHANGEBUGSEVERITY:
@@ -55,10 +56,10 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new ChangeStorySizeCommand(systemRepository);
 //            case CHANGESTORYPRIORITY:
 //                return new ChangeStoryPriorityCommand(systemRepository);
-//            case CHANGEFEEDBACKSTATUS:
-//                return new ChangeFeedbackStatusCommand(systemRepository);
-//            case CHANGEFEEDBACKRATING:
-//                return new ChangeFeedbackRatingCommand(systemRepository);
+            case CHANGEFEEDBACKSTATUS:
+                return new ChangeFeedbackStatusCommand(systemRepository);
+            case CHANGEFEEDBACKRATING:
+                return new ChangeFeedbackRatingCommand(systemRepository);
             case ASSIGNTASK:
                 return new AssignTaskCommand(systemRepository);
             case UNASSIGNTASK:
