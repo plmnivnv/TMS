@@ -6,6 +6,7 @@ import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
 import com.company.oop.tms.models.tasks.enums.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface SystemRepository {
@@ -18,6 +19,12 @@ public interface SystemRepository {
     List<Board> getBoardList();
 
     List<Task> getTaskList();
+
+    List<Bug> getBugList();
+
+    List<Story> getStoryList();
+
+    List<Feedback> getFeedbackList();
 
     Bug createBug(String title, String description, List<String> stepsToProduce, Priority priority, Severity severity, Member assignee);
 

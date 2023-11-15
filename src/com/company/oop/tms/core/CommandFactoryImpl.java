@@ -4,10 +4,6 @@ import com.company.oop.tms.commands.*;
 import com.company.oop.tms.commands.bug_commands.*;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
-import com.company.oop.tms.commands.feedback_commands.ChangeFeedbackRatingCommand;
-import com.company.oop.tms.commands.feedback_commands.ChangeFeedbackStatusCommand;
-import com.company.oop.tms.commands.feedback_commands.CreateFeedbackInBoardCommand;
-import com.company.oop.tms.commands.story_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
 import com.company.oop.tms.core.contracts.SystemRepository;
 import com.company.oop.tms.utils.ParsingHelpers;
@@ -49,12 +45,12 @@ public class CommandFactoryImpl implements CommandFactory {
 //                return new CreateFeedbackInBoardCommand(systemRepository);
 //            case CHANGEBUGSTATUS:
 //                return new ChangeBugStatusCommand(systemRepository);
-//            case CHANGEBUGSEVERITY:
-//                return new ChangeBugSeverityCommand(systemRepository);
-//            case CHANGEBUGPRIORITY:
-//                return new ChangeBugPriorityCommand(systemRepository);
-//            case CHANGESTORYSTATUS:
-//                return new ChangeStoryStatusCommand(systemRepository);
+            case CHANGEBUGSEVERITY:
+                return new ChangeBugSeverityCommand(systemRepository);
+            case CHANGEBUGPRIORITY:
+                return new ChangeBugPriorityCommand(systemRepository);
+            case CHANGESTORYSTATUS:
+                return new ChangeStoryStatusCommand(systemRepository);
 //            case CHANGESTORYSIZE:
 //                return new ChangeStorySizeCommand(systemRepository);
 //            case CHANGESTORYPRIORITY:

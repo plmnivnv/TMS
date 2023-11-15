@@ -1,4 +1,4 @@
-package com.company.oop.tms.commands.bug_commands;
+package com.company.oop.tms.commands;
 
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.core.contracts.SystemRepository;

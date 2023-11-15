@@ -29,6 +29,9 @@ public class SystemRepositoryImpl implements SystemRepository {
     private final List<Team> teamList = new ArrayList<>();
     private final List<Board> boardList = new ArrayList<>();
     private final List<Task> taskList = new ArrayList<>();
+    private final List<Bug> bugList = new ArrayList<>();
+    private final List<Story> storyList = new ArrayList<>();
+    private final List<Feedback> feedbackList = new ArrayList<>();
 
 
     public SystemRepositoryImpl() {
@@ -60,6 +63,7 @@ public class SystemRepositoryImpl implements SystemRepository {
         Bug bug = new BugImpl(nextId, title, description, stepsToProduce, priority, severity, assignee);
         nextId++;
         taskList.add(bug);
+        bugList.add(bug);
         return bug;
     }
 
@@ -68,7 +72,20 @@ public class SystemRepositoryImpl implements SystemRepository {
         Story story = new StoryImpl(nextId, title, description, priority, size, assignee);
         nextId++;
         taskList.add(story);
+        storyList.add(story);
         return story;
+    }
+
+    public List<Bug> getBugList() {
+        return new ArrayList<>(bugList);
+    }
+
+    public List<Story> getStoryList() {
+        return new ArrayList<>(storyList);
+    }
+
+    public List<Feedback> getFeedbackList() {
+        return new ArrayList<>(feedbackList);
     }
 
     @Override
@@ -76,28 +93,29 @@ public class SystemRepositoryImpl implements SystemRepository {
         Feedback feedback = new FeedbackImpl(nextId, title, description, rating);
         nextId++;
         taskList.add(feedback);
+        feedbackList.add(feedback);
         return feedback;
     }
 
     @Override
     public <T extends Nameable> T findElementByName(List<T> list, String name, String type) {
         for (T element : list) {
-            if(element.getName().equalsIgnoreCase(name)){
+            if (element.getName().equalsIgnoreCase(name)) {
                 return element;
             }
         }
-        throw new NoSuchElementException(String.format(NOT_EXISTING_ELEMENT,type, name));
+        throw new NoSuchElementException(String.format(NOT_EXISTING_ELEMENT, type, name));
     }
 
 
     @Override
     public <T extends Identifiable> T findElementById(List<T> list, int id, String type) {
         for (T element : list) {
-            if(element.getId() == id){
+            if (element.getId() == id) {
                 return element;
             }
         }
-        throw new NoSuchElementException(String.format(NOT_EXISTING_TASK,type, id));
+        throw new NoSuchElementException(String.format(NOT_EXISTING_TASK, type, id));
     }
 
     @Override
@@ -150,7 +168,6 @@ public class SystemRepositoryImpl implements SystemRepository {
     public Comment createComment(Member author, String content) {
         return new CommentImpl(author, content);
     }
-
 
 
     private <T extends Nameable> boolean findExistingName(List<T> elements, String name) {
