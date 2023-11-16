@@ -43,10 +43,14 @@ public class MemberImpl implements Member {
         this.name = name;
     }
 
+    public List<Task> getTaskList() {
+        return new ArrayList<>(taskList);
+    }
     @Override
     public List<ActivityHistoryImpl> getActivityHistoryList() {
         return new ArrayList<>(activityHistoryList);
     }
+
     @Override
     public void assignTask(Task task){
         taskList.add(task);
