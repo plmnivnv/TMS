@@ -16,7 +16,8 @@ public class ShowAllTeamActivityCommand implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     SystemRepository systemRepository;
 
-    public ShowAllTeamActivityCommand(SystemRepository systemRepository) {
+    public ShowAllTeamActivityCommand(SystemRepository systemRepository){
+
         this.systemRepository = systemRepository;
     }
 
