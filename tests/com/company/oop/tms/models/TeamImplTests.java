@@ -3,15 +3,10 @@ package com.company.oop.tms.models;
 import com.company.oop.tms.exceptions.InvalidUserInputException;
 import com.company.oop.tms.models.contracts.Board;
 import com.company.oop.tms.models.contracts.Member;
-import com.company.oop.tms.models.tasks.BugImpl;
-import com.company.oop.tms.models.tasks.contracts.Task;
-import com.company.oop.tms.models.tasks.enums.Priority;
-import com.company.oop.tms.models.tasks.enums.Severity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import util.TestUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TeamImplTests {

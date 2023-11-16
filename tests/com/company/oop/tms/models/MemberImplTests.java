@@ -1,12 +1,10 @@
 package com.company.oop.tms.models;
 
 import com.company.oop.tms.exceptions.InvalidUserInputException;
-import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.BugImpl;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import util.TestUtils;
@@ -82,11 +80,11 @@ public class MemberImplTests {
 
     @Test
     public void logActivityHistory_Should_Add_NewHistory() {
-        List<ActivityHistoryImpl> testHistoryList = new ArrayList<>();
-        ActivityHistoryImpl testHistory = new ActivityHistoryImpl("TestDescription");
+        MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
 
-        testHistoryList.add(testHistory);
-        Assertions.assertEquals(1, testHistoryList.size());
+        member.logActivityHistory("Test");
+
+        Assertions.assertEquals(1, member.getActivityHistoryList().size());
 
 //I don't like this test. Check add method not object.
     }
