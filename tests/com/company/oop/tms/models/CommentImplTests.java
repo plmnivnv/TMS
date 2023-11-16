@@ -2,7 +2,6 @@ package com.company.oop.tms.models;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import util.TestUtils;
 
 public class CommentImplTests {
     public String VALID_NAME_LENGTH = "Coment";
