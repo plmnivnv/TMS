@@ -23,7 +23,7 @@ public class MemberImplTests {
 
     @Test
     public void constructor_Should_InitializeName_When_ArgumentsAreValid() {
-        Member member = new MemberImpl(VALID_NAME_LENGTH);
+        MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
 
         Assertions.assertEquals(VALID_NAME_LENGTH, member.getName());
     }
@@ -35,14 +35,14 @@ public class MemberImplTests {
 
     @Test
     public void getName_Should_Return_Name() {
-        Member member = new MemberImpl(VALID_NAME_LENGTH);
+        MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
 
         Assertions.assertEquals(VALID_NAME_LENGTH, member.getName());
     }
 
     @Test
     public void getHistory_Should_Return_Copy_Of_List() {
-        Member member = new MemberImpl(VALID_NAME_LENGTH);
+        MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
         List<ActivityHistoryImpl> activityHistoriesReference = member.getActivityHistoryList();
         List<ActivityHistoryImpl> sameReference = member.getActivityHistoryList();
 
@@ -60,7 +60,6 @@ public class MemberImplTests {
     @Test
     public void assignTask_Should_Add_Task_When_Task_Is_Assigned() {
         List<String> testStep = new ArrayList<>();
-        List<Task> taskList = new ArrayList<>();
         MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
         Task task = new BugImpl(1, "TestBugTitle", "Description", testStep, Priority.LOW, Severity.MINOR, member);
 
@@ -71,7 +70,6 @@ public class MemberImplTests {
 
     @Test
     public void UnAssignTask_Should_Removed_Task_When_Task_Is_UnAssigned() {
-        List<Task> testList = new ArrayList<>();
         List<String> testStep = new ArrayList<>();
         MemberImpl member = new MemberImpl(VALID_NAME_LENGTH);
         Task task = new BugImpl(1, "TestBugTitle", "Description", testStep, Priority.LOW, Severity.MINOR, member);
