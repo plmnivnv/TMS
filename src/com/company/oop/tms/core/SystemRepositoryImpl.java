@@ -57,6 +57,18 @@ public class SystemRepositoryImpl implements SystemRepository {
     public List<Task> getTaskList() {
         return new ArrayList<>(taskList);
     }
+    @Override
+    public List<Bug> getBugList() {
+        return new ArrayList<>(bugList);
+    }
+    @Override
+    public List<Story> getStoryList() {
+        return new ArrayList<>(storyList);
+    }
+    @Override
+    public List<Feedback> getFeedbackList() {
+        return new ArrayList<>(feedbackList);
+    }
 
     @Override
     public Bug createBug(String title, String description, List<String> stepsToProduce, Priority priority, Severity severity, Member assignee) {
@@ -74,18 +86,6 @@ public class SystemRepositoryImpl implements SystemRepository {
         taskList.add(story);
         storyList.add(story);
         return story;
-    }
-
-    public List<Bug> getBugList() {
-        return new ArrayList<>(bugList);
-    }
-
-    public List<Story> getStoryList() {
-        return new ArrayList<>(storyList);
-    }
-
-    public List<Feedback> getFeedbackList() {
-        return new ArrayList<>(feedbackList);
     }
 
     @Override
@@ -151,7 +151,7 @@ public class SystemRepositoryImpl implements SystemRepository {
     @Override
     public Board createBoard(String name) {
         Board board = new BoardImpl(name);
-        if (boardList.isEmpty()) {
+        if (boardList.isEmpty() && teamList.isEmpty()) {
             boardList.add(board);
             return board;
         } else {
