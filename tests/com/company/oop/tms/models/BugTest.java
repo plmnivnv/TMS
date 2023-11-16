@@ -1,8 +1,10 @@
 package com.company.oop.tms.models;
 
 
+import com.company.oop.tms.exceptions.InvalidUserInputException;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.BugImpl;
+import com.company.oop.tms.models.tasks.FeedbackImpl;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
 import com.company.oop.tms.models.tasks.enums.StatusBug;
@@ -12,9 +14,11 @@ import org.junit.jupiter.api.Assertions;
 public class BugTest {
 
     @Test
-    public void testConstructor(){
+    public void should_CreateFeedBack_When_ValidInput(){
         BugImpl bug = initializeBug();
         Assertions.assertEquals(1,bug.getId());
+        Assertions.assertEquals("Test Bug title",bug.getTitle());
+        Assertions.assertEquals("This is a test bug",bug.getDescription());
         Assertions.assertEquals(Priority.LOW,bug.getPriority());
         Assertions.assertEquals(Severity.CRITICAL,bug.getSeverity());
         Assertions.assertEquals("John Doe",bug.getAssignee().getName());
@@ -46,6 +50,7 @@ public class BugTest {
         Assertions.assertEquals(StatusBug.DONE,bug.getStatusBug());
     }
 
+
     @Test
     public void change_Should_return_PriorityBug(){
         BugImpl bug = initializeBug();
@@ -62,7 +67,7 @@ public class BugTest {
 
 
     public static BugImpl initializeBug(){
-        return new BugImpl(1,"Test Bug title","This is a test bugg",
+        return new BugImpl(1,"Test Bug title","This is a test bug",
                 null,Priority.LOW,Severity.CRITICAL,new MemberImpl("John Doe"));
     }
 
