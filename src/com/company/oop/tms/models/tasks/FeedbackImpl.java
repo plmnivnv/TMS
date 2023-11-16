@@ -35,11 +35,11 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
         if (statusFeedback.equals(getStatusFeedback())) {
             throw new InvalidUserInputException(String.format(STATUS_ERROR_MESSAGE, getStatusFeedback()));
         }
+        this.statusFeedback = statusFeedback;
         logActivityHistory(String.format(STATUS_CHANGE_MESSAGE,
                 getId(),
                 currentStatus,
                 getStatusFeedback()));
-        this.statusFeedback = statusFeedback;
     }
 
     @Override
@@ -48,8 +48,8 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
         if (currentRating == getRating()){
             throw new InvalidUserInputException(String.format(RATING_ERROR_MESSAGE,getRating()));
         }
-        logActivityHistory(String.format(RATING_CHANGED_MESSAGE, getId(), currentRating, getRating()));
         this.rating = rating;
+        logActivityHistory(String.format(RATING_CHANGED_MESSAGE, getId(), currentRating, getRating()));
     }
 
 

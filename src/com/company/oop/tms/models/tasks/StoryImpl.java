@@ -57,7 +57,7 @@ public class StoryImpl extends TasksImpl implements Story {
             throw new InvalidUserInputException(String.format(STATUS_ERROR_MESSAGE, getStatus()));
         }
         this.statusStory = statusStory;
-        logActivityHistory(String.format("The status of item with ID: %d changed from %s to %s", getId(), currentStatus, getStatus()));
+       assignee.logActivityHistory(String.format("The status of item with ID: %d changed from %s to %s", getId(), currentStatus, getStatus()));
     }
 
     @Override
@@ -67,7 +67,7 @@ public class StoryImpl extends TasksImpl implements Story {
             throw new InvalidUserInputException(String.format(PRIORITY_ERROR_MESSAGE, getPriority()));
         }
         this.priority = priority;
-        logActivityHistory(String.format("The priority of item with ID: %d changed from %s to %s", getId(), currentPriority, getPriority()));
+       assignee.logActivityHistory(String.format("The priority of item with ID: %d changed from %s to %s", getId(), currentPriority, getPriority()));
     }
 
     @Override
@@ -77,6 +77,6 @@ public class StoryImpl extends TasksImpl implements Story {
             throw new IllegalArgumentException(String.format(SIZE_ERROR_MESSAGE, getSize()));
         }
         this.size = size;
-        logActivityHistory(String.format("The size of item with ID: %d changed from %s to %s",getId(), currentSize, getSize()));
+       assignee.logActivityHistory(String.format("The size of item with ID: %d changed from %s to %s",getId(), currentSize, getSize()));
     }
 }

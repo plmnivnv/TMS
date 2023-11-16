@@ -11,9 +11,9 @@ import java.util.List;
 
 public class BugImpl extends TasksImpl implements Bug {
     public static final StatusBug INITIAL_STATUS = StatusBug.ACTIVE;
-    public static final String PRIORITY_CHANGED_MESSAGE = "Priority was changed from %s to %s.";
-    public static final String SEVERITY_CHANGED_MESSAGE = "Severity was changed from %s to %s.";
-    public static final String STATUS_CHANGED_MESSAGE = "Status changed from %s to %s.";
+    public static final String PRIORITY_CHANGED_MESSAGE = "Priority of Item with ID: %d was changed from %s to %s.";
+    public static final String SEVERITY_CHANGED_MESSAGE = "Severity of Item with ID: %d was changed from %s to %s.";
+    public static final String STATUS_CHANGED_MESSAGE = "Status of Item with ID: %d changed from %s to %s.";
     public static final String STATUS_ERROR_MESSAGE = "Status is already %s.";
     public static final String PRIORITY_ERROR_MESSAGE = "Priority is already at %s";
     public static final String SEVERITY_ERROR_MESSAGE = "Severity is already at %s";
@@ -65,7 +65,7 @@ public class BugImpl extends TasksImpl implements Bug {
             throw new IllegalArgumentException(String.format(STATUS_ERROR_MESSAGE,statusBug));
         }
         this.statusBug = statusBug;
-        logActivityHistory(String.format(STATUS_CHANGED_MESSAGE, currentStatus, getStatusBug()));
+        assignee.logActivityHistory(String.format(STATUS_CHANGED_MESSAGE, getId(), currentStatus, getStatusBug()));
     }
 
     @Override
@@ -75,7 +75,7 @@ public class BugImpl extends TasksImpl implements Bug {
             throw new InvalidUserInputException(String.format(PRIORITY_ERROR_MESSAGE,getPriority()));
         }
         this.priority = priority;
-        logActivityHistory(String.format(PRIORITY_CHANGED_MESSAGE,currentPriority,getPriority()));
+        assignee.logActivityHistory(String.format(PRIORITY_CHANGED_MESSAGE,getId(), currentPriority,getPriority()));
     }
 
     @Override
@@ -85,6 +85,6 @@ public class BugImpl extends TasksImpl implements Bug {
             throw new InvalidUserInputException(String.format(SEVERITY_ERROR_MESSAGE,getSeverity()));
         }
         this.severity = severity;
-        logActivityHistory(String.format(SEVERITY_CHANGED_MESSAGE,currentSeverity,getSeverity()));
+        assignee.logActivityHistory(String.format(SEVERITY_CHANGED_MESSAGE,getId(),currentSeverity,getSeverity()));
     }
 }

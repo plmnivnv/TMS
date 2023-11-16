@@ -1,8 +1,6 @@
 package com.company.oop.tms.models;
 
-import com.company.oop.tms.models.contracts.ActivityHistory;
 import com.company.oop.tms.models.contracts.Board;
-import com.company.oop.tms.models.tasks.BugImpl;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
 
@@ -17,7 +15,7 @@ public class BoardImpl implements Board {
             NAME_MAX_LENGTH);
     private String name;
     private List<Task> taskList;
-    private List<ActivityHistory> activityHistoryList;
+    private List<ActivityHistoryImpl> activityHistoryList;
 
     public BoardImpl(String name) {
         setName(name);
@@ -43,12 +41,24 @@ public class BoardImpl implements Board {
     }
 
     @Override
+    public List<ActivityHistoryImpl> getActivityHistoryList() {
+        return new ArrayList<>(activityHistoryList);
+    }
+
+    public void logActivityHistory(String activity) {
+        activityHistoryList.add(new ActivityHistoryImpl(activity));
+    }
+
+
+    @Override
     public void addTask(Task task) {
         taskList.add(task);
+        logActivityHistory(String.format("Task with ID: %d added to board", task.getId()));
     }
 
     @Override
     public void removeTask(Task task) {
         taskList.remove(task);
+        logActivityHistory(String.format("Task with ID: %d removed from board", task.getId()));
     }
 }

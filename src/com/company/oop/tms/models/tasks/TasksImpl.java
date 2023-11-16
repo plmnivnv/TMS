@@ -1,7 +1,6 @@
 package com.company.oop.tms.models.tasks;
 
 import com.company.oop.tms.models.ActivityHistoryImpl;
-import com.company.oop.tms.models.contracts.ActivityHistory;
 import com.company.oop.tms.models.contracts.Comment;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
@@ -23,7 +22,7 @@ public abstract class TasksImpl implements Task {
     public static final String DESCRIPTION_LENGTH_MSG = String.format("Description name must be between %d and %d symbols",
             DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH);
     private final List<Comment> commentList = new ArrayList<>();
-    private final List<ActivityHistory> activityHistoryList = new ArrayList<>();
+    private final List<ActivityHistoryImpl> activityHistoryList = new ArrayList<>();
     private final int id;
     private String title;
     private String description;
@@ -55,7 +54,7 @@ public abstract class TasksImpl implements Task {
         return new ArrayList<>(commentList);
     }
 
-    public List<ActivityHistory> getActivityHistoryList() {
+    public List<ActivityHistoryImpl> getActivityHistoryList() {
         return new ArrayList<>(activityHistoryList);
     }
 

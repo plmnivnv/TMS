@@ -21,15 +21,15 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateMemberCommand(systemRepository);
             case SHOWMEMBERS:
                 return new ShowAllMembersCommand(systemRepository);
-//            case SHOWMEMBERSACTIVITY:
-//                return new ShowMembersActivity(systemRepository);
+            case SHOWMEMBERSACTIVITY:
+                return new ShowMembersActivityCommand(systemRepository);
             case CREATETEAM:
                 return new CreateNewTeamCommand(systemRepository);
             case SHOWTEAMS:
                 return new ShowAllTeamsCommand(systemRepository);
             case SHOWTEAMACTIVITY:
                 return new ShowAllTeamActivityCommand(systemRepository);
-            case ADDMEMBER:
+            case ADDMEMBERTOTEAM:
                 return new AddMemberToTeamCommand(systemRepository);
             case SHOWTEAMMEMBERS:
                 return new ShowAllTeamMembersCommand(systemRepository);
@@ -37,8 +37,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new CreateBoardCommand(systemRepository);
             case SHOWTEAMBOARDS:
                 return new ShowTeamBoardsCommand(systemRepository);
-//            case SHOWBOARDACTIVITY:
-//                return new ShowBoardActivityCommand(systemRepository);
+            case SHOWBOARDACTIVITY:
+                return new ShowBoardActivityCommand(systemRepository);
             case CREATEBUGINBOARD:
                 return new CreateBugInBoardCommand(systemRepository);
             case CREATESTORYINBOARD:

@@ -1,13 +1,11 @@
 package com.company.oop.tms.models;
 
-import com.company.oop.tms.models.contracts.ActivityHistory;
 import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class MemberImpl implements Member {
@@ -22,7 +20,7 @@ public class MemberImpl implements Member {
 
     private String name;
     private List<Task> taskList;
-    private List<ActivityHistory> activityHistoryList;
+    private List<ActivityHistoryImpl> activityHistoryList;
 
     public MemberImpl(String name) {
         setName(name);
@@ -46,7 +44,7 @@ public class MemberImpl implements Member {
     }
 
     @Override
-    public List<ActivityHistory> getActivityHistoryList() {
+    public List<ActivityHistoryImpl> getActivityHistoryList() {
         return new ArrayList<>(activityHistoryList);
     }
     @Override
@@ -56,13 +54,11 @@ public class MemberImpl implements Member {
 
     @Override
     public void unAssignTask(Task task) {
-//        if (taskList.isEmpty()){
-//            throw new NoSuchElementException(NO_TASKS_MESSAGE);
-//        }
-//        if (!taskList.contains(task)){
-//            throw new NoSuchElementException(NON_EXISTING_TASK_MESSAGE);
-//        }
         taskList.remove(task);
+    }
+
+    public void logActivityHistory(String activity) {
+        activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 
     @Override

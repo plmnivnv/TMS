@@ -26,7 +26,6 @@ public class CreateMemberCommand implements Command {
 
     private String createMember(String name){
         Member member = systemRepository.createMember(name);
-
         return String.format(MEMBER_CREATE_MESSAGE, name);
     }
 
