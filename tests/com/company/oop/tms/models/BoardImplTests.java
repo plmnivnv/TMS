@@ -1,10 +1,7 @@
 package com.company.oop.tms.models;
 
 import com.company.oop.tms.exceptions.InvalidUserInputException;
-import com.company.oop.tms.models.contracts.Board;
-import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.BugImpl;
-import com.company.oop.tms.models.tasks.TasksImpl;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
@@ -65,7 +62,6 @@ public class BoardImplTests {
 
     @Test
     public void logActivityHistory_Should_Add_New_Log(){
-        ActivityHistoryImpl activityHistory = new ActivityHistoryImpl("ActivityTest");
         BoardImpl board = new BoardImpl(VALID_NAME_LENGTH);
 
 
