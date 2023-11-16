@@ -46,14 +46,6 @@ public class FeedbackTest {
         feedback.changeStatus(StatusFeedback.NEW);
     }
 
-    @Test
-    public void change_Should_Return_ChangeRating(){
-        FeedbackImpl feedback = initializeFeedBack();
-
-        feedback.changeRating(2);
-        Assertions.assertEquals(2,feedback.getRating());
-    }
-
     @Test(expected = InvalidUserInputException.class)
     public void change_Should_ThrowException_When_ChangeRating(){
         FeedbackImpl feedback = initializeFeedBack();

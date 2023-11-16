@@ -50,6 +50,13 @@ public class BugTest {
         Assertions.assertEquals(StatusBug.DONE,bug.getStatusBug());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void throws_bug(){
+        BugImpl bug = initializeBug();
+        bug.changeStatusBug(StatusBug.DONE);
+        bug.changeStatusBug(StatusBug.ACTIVE);
+    }
+
 
     @Test
     public void change_Should_return_PriorityBug(){
@@ -58,11 +65,22 @@ public class BugTest {
         Assertions.assertEquals(Priority.HIGH,bug.getPriority());
     }
 
+    @Test(expected = InvalidUserInputException.class)
+    public void change_Should_ThrowException_PriorityBug(){
+        BugImpl bug = initializeBug();
+        bug.changePriorityBug(Priority.LOW);
+    }
+
     @Test
     public void change_Should_return_SeverityBug(){
         BugImpl bug = initializeBug();
         bug.changeSeverityBug(Severity.MAJOR);
         Assertions.assertEquals(Severity.MAJOR,bug.getSeverity());
+    }
+    @Test(expected = InvalidUserInputException.class)
+    public void change_Should_ThrowException_SeverityBug(){
+        BugImpl bug = initializeBug();
+        bug.changeSeverityBug(Severity.CRITICAL);
     }
 
 
