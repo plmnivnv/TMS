@@ -64,6 +64,16 @@ public abstract class TasksImpl implements Task {
     }
 
     @Override
+    public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
     public void addComment(Comment comment) {
         commentList.add(comment);
     }
