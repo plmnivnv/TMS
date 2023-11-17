@@ -45,7 +45,7 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
     @Override
     public void changeRating(int rating) {
         int currentRating = getRating();
-        if (currentRating == getRating()){
+        if (rating == getRating()){
             throw new InvalidUserInputException(String.format(RATING_ERROR_MESSAGE,getRating()));
         }
         this.rating = rating;

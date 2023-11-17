@@ -5,6 +5,7 @@ import com.company.oop.tms.core.SystemRepositoryImpl;
 import com.company.oop.tms.core.contracts.SystemRepository;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Severity;
+import com.company.oop.tms.models.tasks.enums.StatusBug;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,19 +14,21 @@ import util.TestUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChangeBugPriorityCommandTest {
+public class ChangeBugStatusCommandTest {
+
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
-    public static final String INVALID_PRIORITY_NAME = "InvalidPriorityName";
+    public static final String INVALID_STATUS_NAME = "InvalidStatusName";
+    public static final String INVALID_ID = "StringNotNumber";
+    public static final String VALID_ID = "5";
 
     SystemRepository systemRepository;
-
     Command command;
 
     @BeforeEach
     public void setup(){
         systemRepository = new SystemRepositoryImpl();
-        command = new ChangeBugPriorityCommand(systemRepository);
+        command = new ChangeBugStatusCommand(systemRepository);
     }
 
     @Test
@@ -39,16 +42,16 @@ public class ChangeBugPriorityCommandTest {
     @Test
     public void execute_Should_ThrowException_When_IdIsNotNumber(){
         //Arrange
-        Priority element = Priority.LOW;
-        List<String> parameters = List.of("StringNotNumber",element.toString());
+        StatusBug element = StatusBug.DONE;
+        List<String> parameters = List.of(INVALID_ID,element.toString());
         //Act,Assert
         Assertions.assertThrows(NumberFormatException.class, ()-> command.execute(parameters));
     }
 
     @Test
-    public void execute_Should_ThrowException_When_PriorityIsInvalid(){
+    public void execute_Should_ThrowException_When_StatusIsInvalid(){
         //Arrange
-        List<String> parameters = List.of("5", INVALID_PRIORITY_NAME);
+        List<String> parameters = List.of(VALID_ID, INVALID_STATUS_NAME);
         //Act,Assert
         Assertions.assertThrows(IllegalArgumentException.class, ()-> command.execute(parameters));
     }
@@ -63,16 +66,14 @@ public class ChangeBugPriorityCommandTest {
                 Priority.HIGH,
                 Severity.MAJOR,
                 systemRepository.createMember(CreateBugInBoardCommandTest.VALID_MEMBER_NAME));
-        int bugId = 1;
         List<String> parameters = new ArrayList<>();
-        Priority element = Priority.LOW;
+        int bugId = 1;
+        StatusBug element = StatusBug.DONE;
         parameters.add(String.valueOf(bugId));
         parameters.add(element.toString());
         //Act
         command.execute(parameters);
         //Assert
-        Assertions.assertEquals(element, systemRepository.findElementById(systemRepository.getBugList(), bugId, "Bug").getPriority());
+        Assertions.assertEquals(element, systemRepository.findElementById(systemRepository.getBugList(), bugId, "Bug").getStatusBug());
     }
-
-
 }
