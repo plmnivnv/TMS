@@ -1,6 +1,6 @@
 package com.company.oop.tms.commands;
 
-public class TestTestTest {
+public class AddCommentToTaskCommandTest {
 
     
 }
