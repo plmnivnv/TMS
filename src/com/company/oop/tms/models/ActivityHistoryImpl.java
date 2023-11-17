@@ -12,6 +12,13 @@ public class ActivityHistoryImpl {
         this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
 
     @Override
     public String toString() {
