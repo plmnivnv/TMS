@@ -13,19 +13,20 @@ import util.TestUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChangeBugPriorityCommandTest {
+public class ChangeBugSeverityCommandTest {
+
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
-    public static final String INVALID_PRIORITY_NAME = "InvalidPriorityName";
+    public static final String INVALID_SEVERITY_NAME = "InvalidSeverityName";
+    public static final String INVALID_ID = "StringNotNumber";
 
     SystemRepository systemRepository;
-
     Command command;
 
     @BeforeEach
     public void setup(){
         systemRepository = new SystemRepositoryImpl();
-        command = new ChangeBugPriorityCommand(systemRepository);
+        command = new ChangeBugSeverityCommand(systemRepository);
     }
 
     @Test
@@ -39,16 +40,16 @@ public class ChangeBugPriorityCommandTest {
     @Test
     public void execute_Should_ThrowException_When_IdIsNotNumber(){
         //Arrange
-        Priority element = Priority.LOW;
-        List<String> parameters = List.of("StringNotNumber",element.toString());
+        Severity element = Severity.MAJOR;
+        List<String> parameters = List.of(INVALID_ID,element.toString());
         //Act,Assert
         Assertions.assertThrows(NumberFormatException.class, ()-> command.execute(parameters));
     }
 
     @Test
-    public void execute_Should_ThrowException_When_PriorityIsInvalid(){
+    public void execute_Should_ThrowException_When_SeverityIsInvalid(){
         //Arrange
-        List<String> parameters = List.of("5", INVALID_PRIORITY_NAME);
+        List<String> parameters = List.of("5", INVALID_SEVERITY_NAME);
         //Act,Assert
         Assertions.assertThrows(IllegalArgumentException.class, ()-> command.execute(parameters));
     }
@@ -65,14 +66,12 @@ public class ChangeBugPriorityCommandTest {
                 systemRepository.createMember(CreateBugInBoardCommandTest.VALID_MEMBER_NAME));
         int bugId = 1;
         List<String> parameters = new ArrayList<>();
-        Priority element = Priority.LOW;
+        Severity element = Severity.CRITICAL;
         parameters.add(String.valueOf(bugId));
         parameters.add(element.toString());
         //Act
         command.execute(parameters);
         //Assert
-        Assertions.assertEquals(element, systemRepository.findElementById(systemRepository.getBugList(), bugId, "Bug").getPriority());
+        Assertions.assertEquals(element, systemRepository.findElementById(systemRepository.getBugList(), bugId, "Bug").getSeverity());
     }
-
-
 }
