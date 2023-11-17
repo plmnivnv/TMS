@@ -2,6 +2,7 @@ package com.company.oop.tms.commands;
 
 import com.company.oop.tms.core.SystemRepositoryImpl;
 import com.company.oop.tms.core.contracts.SystemRepository;
+import com.company.oop.tms.exceptions.NoSuchElementException;
 import com.company.oop.tms.models.MemberImpl;
 import com.company.oop.tms.models.contracts.Member;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +25,7 @@ public class ShowAllMembersCommandTest {
     }
 
     @Test
-    public void testShowMembersWithInvalidNumberOfArguments() {
+    public void should_ThrowException_InvalidNumberOfArguments() {
         SystemRepository systemRepository = new SystemRepositoryImpl();
         ShowAllMembersCommand command = new ShowAllMembersCommand(systemRepository);
 
