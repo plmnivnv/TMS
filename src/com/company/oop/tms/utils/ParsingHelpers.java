@@ -15,23 +15,5 @@ public class ParsingHelpers {
         }
     }
 
-    public static Severity tryParseSeverity(String valueToParse) {
-        try {
-            return Severity.valueOf(valueToParse.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(String.format(NO_SUCH_ENUM, valueToParse));
-        }
-    }
-
-    public static Priority tryParsePriority(String valueToParse) {
-        try {
-            return Priority.valueOf(valueToParse.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(String.format(NO_SUCH_ENUM, valueToParse));
-        }
-    }
-
-
-
 
 }
