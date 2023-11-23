@@ -87,4 +87,11 @@ public class BugImpl extends TasksImpl implements Bug {
         this.severity = severity;
         assignee.logActivityHistory(String.format(SEVERITY_CHANGED_MESSAGE,getId(),currentSeverity,getSeverity()));
     }
+
+//    @Override
+//    public String toString() {
+//        return String.format("""
+//               %s
+//               Steps to produce: %s""",super.toString());
+//    }
 }

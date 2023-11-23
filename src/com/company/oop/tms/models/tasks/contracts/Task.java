@@ -13,5 +13,6 @@ public interface Task extends Identifiable, Commentable, Displayable {
     void addComment(Comment comment);
 
     void removeComment(Comment comment);
+    String toString();
 
 }

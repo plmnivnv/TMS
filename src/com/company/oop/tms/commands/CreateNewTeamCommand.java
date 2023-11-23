@@ -25,7 +25,7 @@ public class CreateNewTeamCommand implements Command {
         return createTeam(name);
     }
 
-    private String createTeam(String name){
+    private String createTeam(String name) {
         Team team = systemRepository.createTeam(name);
 
         return String.format(TEAM_CREATE_MESSAGE, name);

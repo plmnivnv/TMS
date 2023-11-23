@@ -97,6 +97,11 @@ public abstract class TasksImpl implements Task {
         activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 
-
-
+    @Override
+    public String toString() {
+        return String.format("""
+                Task ID: %d
+                Title: %s
+                Description: %s""",getId(),getTitle(),getDescription());
+    }
 }

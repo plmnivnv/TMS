@@ -28,6 +28,7 @@ public class MemberImplTests {
 
     @Test
     public void constructor_Should_ThrowException_When_NameIsShorterThanExpected() {
+
         Assertions.assertThrows(InvalidUserInputException.class, () -> new MemberImpl(INVALID_NAME_LENGTH));
     }
 
@@ -85,8 +86,6 @@ public class MemberImplTests {
         member.logActivityHistory("Test");
 
         Assertions.assertEquals(1, member.getActivityHistoryList().size());
-
-//I don't like this test. Check add method not object.
     }
 
 }

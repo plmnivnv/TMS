@@ -5,6 +5,8 @@ import com.company.oop.tms.commands.bug_commands.*;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
 import com.company.oop.tms.commands.feedback_commands.*;
+import com.company.oop.tms.commands.listings.filter_command.FilterTasksByTitleCommand;
+import com.company.oop.tms.commands.listings.sort_command.SortByTitleCommand;
 import com.company.oop.tms.commands.story_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
 import com.company.oop.tms.core.contracts.SystemRepository;
@@ -67,6 +69,10 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new UnAssignTaskCommand(systemRepository);
             case ADDCOMMENTTOTASK:
                 return new AddCommentToTaskCommand(systemRepository);
+            case SORTTASKSBYTITLE:
+                return new SortByTitleCommand(systemRepository);
+            case FILTERTASKSBYTITLE:
+                return new FilterTasksByTitleCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
         }
