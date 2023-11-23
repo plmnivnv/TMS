@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public abstract class TasksImpl implements Task, Comparable<TasksImpl> {
+public abstract class TasksImpl implements Task {
 
 
     private static final String NO_COMMENT = "There is no comments!";
@@ -97,20 +97,6 @@ public abstract class TasksImpl implements Task, Comparable<TasksImpl> {
         activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 
-    @Override
-    public int compareTo(TasksImpl o) {
-        int comparedId = ((Task)o).getId();
-        return this.getId() - comparedId;
-    }
 
-    public static Comparator<TasksImpl> TaskNameComparator = new Comparator<TasksImpl>() {
-        @Override
-        public int compare(TasksImpl o1, TasksImpl o2) {
-            String taskName1 = o1.getTitle().toUpperCase();
-            String taskName2 = o2.getTitle().toUpperCase();
-
-            return taskName1.compareTo(taskName2);
-        }
-    };
 
 }
