@@ -5,8 +5,8 @@ import com.company.oop.tms.commands.bug_commands.*;
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
 import com.company.oop.tms.commands.feedback_commands.*;
-import com.company.oop.tms.commands.listings.filter_command.FilterTasksByTitleCommand;
-import com.company.oop.tms.commands.listings.sort_command.SortByTitleCommand;
+import com.company.oop.tms.commands.listings.filter_command.*;
+import com.company.oop.tms.commands.listings.sort_command.SortTasksByTitleCommand;
 import com.company.oop.tms.commands.story_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
 import com.company.oop.tms.core.contracts.SystemRepository;
@@ -69,10 +69,24 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new UnAssignTaskCommand(systemRepository);
             case ADDCOMMENTTOTASK:
                 return new AddCommentToTaskCommand(systemRepository);
+            case FILTERBUGBYSTATUS:
+                return new FilterBugByStatusCommand(systemRepository);
+            case FILTERSTORYBYSTATUS:
+                return new FilterStoryByStatusCommand(systemRepository);
+            case FILTERFEEDBACKBYSTATUS:
+                return new FilterFeedbackByStatusCommand(systemRepository);
             case SORTTASKSBYTITLE:
-                return new SortByTitleCommand(systemRepository);
+                return new SortTasksByTitleCommand(systemRepository);
+            case FILTERBUGBYASSIGNEE:
+                return new FilterBugByAssigneeCommand(systemRepository);
+            case FILTERBUGBYSTATUSANDASSIGNEE:
+                return new FilterBugByStatusAndAssigneeCommand(systemRepository);
+            case FILTERSTORYBYASSIGNEE:
+                return new FilterStoryByAssigneeCommand(systemRepository);
             case FILTERTASKSBYTITLE:
                 return new FilterTasksByTitleCommand(systemRepository);
+            case FILTERSTORYBYSTATUSANDASSIGNEE:
+                return new FilterStoryByStatusAndAssigneeCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
         }

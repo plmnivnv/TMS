@@ -1,12 +1,13 @@
 package com.company.oop.tms.models.tasks.contracts;
 
+import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Size;
 import com.company.oop.tms.models.tasks.enums.StatusStory;
 
 public interface Story extends Task {
 
-    String getAssignee();
+    Member getAssignee();
     StatusStory getStatus();
     Size getSize();
     Priority getPriority();

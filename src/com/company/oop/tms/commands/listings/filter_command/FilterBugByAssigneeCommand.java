@@ -1,0 +1,47 @@
+package com.company.oop.tms.commands.listings.filter_command;
+
+import com.company.oop.tms.commands.contracts.Command;
+import com.company.oop.tms.core.contracts.SystemRepository;
+import com.company.oop.tms.models.tasks.contracts.Bug;
+import com.company.oop.tms.utils.ValidationHelpers;
+
+import java.util.List;
+
+public class FilterBugByAssigneeCommand implements Command {
+
+    public static final String NO_SUCH_ASSIGNEE = "There is no Task with such assignee!";
+
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    SystemRepository systemRepository;
+    List<Bug> bugList;
+
+    public FilterBugByAssigneeCommand(SystemRepository systemRepository) {
+        bugList = systemRepository.getBugList();
+    }
+
+    @Override
+    public String execute(List<String> parameters) {
+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
+        String assignee = parameters.get(0);
+        return filterBugByAssignee(assignee);
+    }
+
+
+    private String filterBugByAssignee(String assignee) {
+        StringBuilder result = new StringBuilder();
+        bugList
+                .stream()
+                .filter(b -> b.getAssignee().getName().equalsIgnoreCase(assignee))
+                .forEach(task -> {
+                    result.append(task).append(System.lineSeparator())
+                            .append("----------")
+                            .append(System.lineSeparator());
+                });
+        if (result.isEmpty()) {
+            System.out.println(NO_SUCH_ASSIGNEE);
+        }
+        return result.toString().trim();
+    }
+
+}
+

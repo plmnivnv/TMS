@@ -32,8 +32,8 @@ public class StoryImpl extends TasksImpl implements Story {
     }
 
     @Override
-    public String getAssignee() {
-        return assignee.getName();
+    public Member getAssignee() {
+        return assignee;
     }
 
     @Override
