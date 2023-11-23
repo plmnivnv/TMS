@@ -15,4 +15,6 @@ public class ActivityHistoryTests {
                 " [" + activityHistory.getTimeStamp().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) + "]"
                 ,activityHistory.toString());
     }
+
+
 }

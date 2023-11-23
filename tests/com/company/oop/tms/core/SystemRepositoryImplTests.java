@@ -242,6 +242,7 @@ public class SystemRepositoryImplTests {
         Assertions.assertThrows(NoSuchElementException.class, ()-> systemRepository.findElementByName(systemRepository.getBoardList(), VALID_BOARD_NAME, "Board"));
     }
 
+
     @Test
     public void findElementById_Should_ReturnElement_When_IdIsValid(){
         //Arrange

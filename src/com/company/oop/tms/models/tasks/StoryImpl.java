@@ -7,6 +7,8 @@ import com.company.oop.tms.models.tasks.enums.Priority;
 import com.company.oop.tms.models.tasks.enums.Size;
 import com.company.oop.tms.models.tasks.enums.StatusStory;
 
+import java.util.Comparator;
+
 public class StoryImpl extends TasksImpl implements Story {
 
 
@@ -78,4 +80,7 @@ public class StoryImpl extends TasksImpl implements Story {
         this.size = size;
         assignee.logActivityHistory(String.format("The size of item with ID: %d changed from %s to %s", getId(), currentSize, getSize()));
     }
+
+
+
 }

@@ -35,22 +35,14 @@ public class MemberImpl implements Member {
 
 
 
-    public void setName(String name) {
-        ValidationHelpers.validateStringLength(name,
-                NAME_MIN_LENGTH,
-                NAME_MAX_LENGTH,
-                NAME_LENGTH_ERROR);
-        this.name = name;
-    }
-
     public List<Task> getTaskList() {
         return new ArrayList<>(taskList);
     }
+
     @Override
     public List<ActivityHistoryImpl> getActivityHistoryList() {
         return new ArrayList<>(activityHistoryList);
     }
-
     @Override
     public void assignTask(Task task){
         taskList.add(task);
@@ -63,6 +55,14 @@ public class MemberImpl implements Member {
 
     public void logActivityHistory(String activity) {
         activityHistoryList.add(new ActivityHistoryImpl(activity));
+    }
+
+    public void setName(String name) {
+        ValidationHelpers.validateStringLength(name,
+                NAME_MIN_LENGTH,
+                NAME_MAX_LENGTH,
+                NAME_LENGTH_ERROR);
+        this.name = name;
     }
 
     @Override

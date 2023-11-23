@@ -28,8 +28,6 @@ public class ShowTeamBoardsCommandTests {
     public void createRepo() {
         systemRepository = new SystemRepositoryImpl();
         args = new ArrayList<>();
-
-
     }
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {

@@ -24,12 +24,6 @@ public class BoardImpl implements Board {
     }
 
 
-    private void setName(String name) {
-        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_LENGTH_ERROR);
-        this.name = name;
-    }
-
-
     @Override
     public String getName() {
         return name;
@@ -49,7 +43,6 @@ public class BoardImpl implements Board {
         activityHistoryList.add(new ActivityHistoryImpl(activity));
     }
 
-
     @Override
     public void addTask(Task task) {
         taskList.add(task);
@@ -60,5 +53,10 @@ public class BoardImpl implements Board {
     public void removeTask(Task task) {
         taskList.remove(task);
         logActivityHistory(String.format("Task with ID: %d removed from board", task.getId()));
+    }
+
+    private void setName(String name) {
+        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_LENGTH_ERROR);
+        this.name = name;
     }
 }

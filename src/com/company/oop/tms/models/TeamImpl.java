@@ -30,14 +30,6 @@ public class TeamImpl implements Team {
         return name;
     }
 
-    private void setName(String name){
-        ValidationHelpers.validateStringLength(name,
-                NAME_MIN_LENGTH,
-                NAME_MAX_LENGTH,
-                NAME_LENGTH_ERROR);
-        this.name = name;
-    }
-
     @Override
     public List<Member> getMembers() {
         return new ArrayList<>(memberList);
@@ -56,6 +48,14 @@ public class TeamImpl implements Team {
     @Override
     public void addBoard(Board board) {
         boardList.add(board);
+    }
+
+    private void setName(String name){
+        ValidationHelpers.validateStringLength(name,
+                NAME_MIN_LENGTH,
+                NAME_MAX_LENGTH,
+                NAME_LENGTH_ERROR);
+        this.name = name;
     }
 
 }
