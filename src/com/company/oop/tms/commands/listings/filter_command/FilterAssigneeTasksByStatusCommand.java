@@ -13,10 +13,10 @@ import java.util.stream.Stream;
 
 public class FilterAssigneeTasksByStatusCommand implements Command {
 
+
     private static final int STATUS_INDEX = 0;
-    private static final int ASSIGNEE_INDEX = 1;
-    private static final int EXPECTED_ARGUMENTS = 2;
-    public static final String NO_RESULTS_MESSAGE = "No assigned task with matching status and assignee!";
+    private static final int EXPECTED_ARGUMENTS = 1;
+    public static final String NO_RESULTS_MESSAGE = "No assigned task with matching status!";
     public static final String END_MESSAGE = "----- END -----";
 
     List<Bug> bugs;
@@ -31,40 +31,29 @@ public class FilterAssigneeTasksByStatusCommand implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_ARGUMENTS);
 
         String searchedStatus = parameters.get(STATUS_INDEX).toLowerCase();
-        String searchedAssignee = parameters.get(ASSIGNEE_INDEX).toLowerCase();
+
 
         Stream<Bug> streamBug = bugs.stream()
-                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus))
-                .filter(bug -> isBugMatchingAssignee(bug,searchedAssignee));
+                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus));
+
 
         Stream<Story> streamStory = stories.stream()
-                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus))
-                .filter(story -> isStoryMatchingAssignee(story,searchedAssignee));
+                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus));
+
 
         if (streamBug.findAny().isEmpty() && streamStory.findAny().isEmpty())
             return NO_RESULTS_MESSAGE;
 
         bugs.stream()
-                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus))
-                .filter(bug -> bug.getAssignee().getName().toLowerCase().contains(searchedAssignee)).sorted(Comparator.comparing(Bug::getTitle))
-                .forEach(bug -> System.out.println(bug));
+                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus)).sorted(Comparator.comparing(Bug::getTitle))
+                .forEach(bug -> System.out.println(bug + "\n"));
 
-        System.out.println();
 
         stories.stream()
-                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus))
-                .filter(story -> story.getAssignee().getName().toLowerCase().contains(searchedAssignee)).sorted(Comparator.comparing(Story::getTitle))
-                .forEach(story -> System.out.println(story));
+                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus)).sorted(Comparator.comparing(Story::getTitle))
+                .forEach(story -> System.out.println(story +"\n"));
         return END_MESSAGE;
 
-    }
-    private boolean isBugMatchingAssignee(Bug bug, String assigneeName) {
-        Member assignee = bug.getAssignee();
-        return assignee != null && assignee.getName().toLowerCase().contains(assigneeName);
-    }
-    private boolean isStoryMatchingAssignee(Story story, String assigneeName) {
-        Member assignee = story.getAssignee();
-        return assignee != null && assignee.getName().toLowerCase().contains(assigneeName);
     }
 
 }
