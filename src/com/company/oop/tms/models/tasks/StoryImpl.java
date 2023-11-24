@@ -85,8 +85,9 @@ public class StoryImpl extends TasksImpl implements Story {
     public String toString() {
         return String.format("""
                 %s
+                Assignee: %s
                 Priority: %s
                 Size: %s
-                Status: %s""",super.toString(),getPriority(),getSize(),getStatus());
+                Status: %s""",super.toString(),getAssignee().getName(),getPriority(),getSize(),getStatus());
     }
 }

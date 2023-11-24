@@ -12,6 +12,7 @@ import java.util.List;
 public class ChangeBugSeverityCommand implements Command {
     public static final String SEVERITY_CHANGE_MESSAGE = "Severity of Bug with ID %d changed to %s.";
     SystemRepository systemRepository;
+
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
 
     public ChangeBugSeverityCommand(SystemRepository systemRepository) {

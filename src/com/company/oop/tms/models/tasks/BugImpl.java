@@ -92,8 +92,9 @@ public class BugImpl extends TasksImpl implements Bug {
     public String toString() {
         return String.format("""
                %s
+               Assignee: %s
                Priority: %s
                Severity: %s
-               Status: %s""",super.toString(), getPriority(), getSeverity(), getStatusBug());
+               Status: %s""",super.toString(),getAssignee().getName(),getPriority(), getSeverity(), getStatusBug());
     }
 }

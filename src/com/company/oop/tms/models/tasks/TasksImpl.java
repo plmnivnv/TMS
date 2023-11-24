@@ -102,6 +102,7 @@ public abstract class TasksImpl implements Task {
         return String.format("""
                 Task ID: %d
                 Title: %s
-                Description: %s""",getId(),getTitle(),getDescription());
+                Description: %s
+                Comments: %s""",getId(),getTitle(),getDescription(), getComments());
     }
 }

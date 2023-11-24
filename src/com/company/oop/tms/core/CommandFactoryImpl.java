@@ -96,6 +96,8 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new SortStoryByTitlePrioritySizeCommand(systemRepository);
             case SORTFEEDBACKS:
                 return new SortFeedbackByTitleRatingCommand(systemRepository);
+            case FILTERASSIGNEETASKS:
+                return new FilterAssigneeTasksByStatusCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
         }

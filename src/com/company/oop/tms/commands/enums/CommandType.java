@@ -39,6 +39,7 @@ public enum CommandType {
     SORTBUGS,
     SORTSTORIES,
     SORTFEEDBACKS,
+    FILTERASSIGNEETASKS,
 
 
 }

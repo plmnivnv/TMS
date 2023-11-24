@@ -2,36 +2,69 @@ package com.company.oop.tms.commands.listings.filter_command;
 
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.core.contracts.SystemRepository;
+import com.company.oop.tms.models.contracts.Member;
 import com.company.oop.tms.models.tasks.contracts.Bug;
 import com.company.oop.tms.models.tasks.contracts.Story;
-import com.company.oop.tms.models.tasks.contracts.Task;
-import com.company.oop.tms.models.tasks.enums.StatusBugAndStory;
+import com.company.oop.tms.utils.ValidationHelpers;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FilterAssigneeTasksByStatusCommand implements Command {
 
-    List<Bug> bugList;
-    List<Story> storyList;
-    List<Task> taskList;
+    private static final int STATUS_INDEX = 0;
+    private static final int ASSIGNEE_INDEX = 1;
+    private static final int EXPECTED_ARGUMENTS = 2;
+    public static final String NO_RESULTS_MESSAGE = "No assigned task with matching status and assignee!";
+    public static final String END_MESSAGE = "----- END -----";
 
-
-
-    public FilterAssigneeTasksByStatusCommand(SystemRepository systemRepository) {
-        bugList = systemRepository.getBugList();
-        storyList = systemRepository.getStoryList();
-        taskList = systemRepository.getTaskList();
+    List<Bug> bugs;
+    List<Story> stories;
+    public FilterAssigneeTasksByStatusCommand(SystemRepository systemRepository){
+        bugs = systemRepository.getBugList();
+        stories = systemRepository.getStoryList();
     }
 
     @Override
     public String execute(List<String> parameters) {
-        return null;
+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_ARGUMENTS);
+
+        String searchedStatus = parameters.get(STATUS_INDEX).toLowerCase();
+        String searchedAssignee = parameters.get(ASSIGNEE_INDEX).toLowerCase();
+
+        Stream<Bug> streamBug = bugs.stream()
+                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus))
+                .filter(bug -> isBugMatchingAssignee(bug,searchedAssignee));
+
+        Stream<Story> streamStory = stories.stream()
+                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus))
+                .filter(story -> isStoryMatchingAssignee(story,searchedAssignee));
+
+        if (streamBug.findAny().isEmpty() && streamStory.findAny().isEmpty())
+            return NO_RESULTS_MESSAGE;
+
+        bugs.stream()
+                .filter(bug -> bug.getStatusBug().toString().toLowerCase().contains(searchedStatus))
+                .filter(bug -> bug.getAssignee().getName().toLowerCase().contains(searchedAssignee)).sorted(Comparator.comparing(Bug::getTitle))
+                .forEach(bug -> System.out.println(bug));
+
+        System.out.println();
+
+        stories.stream()
+                .filter(story -> story.getStatus().toString().toLowerCase().contains(searchedStatus))
+                .filter(story -> story.getAssignee().getName().toLowerCase().contains(searchedAssignee)).sorted(Comparator.comparing(Story::getTitle))
+                .forEach(story -> System.out.println(story));
+        return END_MESSAGE;
+
     }
-
-
-    private String filterAssigneeTasksByStatus(StatusBugAndStory targetStatus){
-        return null;
+    private boolean isBugMatchingAssignee(Bug bug, String assigneeName) {
+        Member assignee = bug.getAssignee();
+        return assignee != null && assignee.getName().toLowerCase().contains(assigneeName);
     }
-
+    private boolean isStoryMatchingAssignee(Story story, String assigneeName) {
+        Member assignee = story.getAssignee();
+        return assignee != null && assignee.getName().toLowerCase().contains(assigneeName);
+    }
 
 }
