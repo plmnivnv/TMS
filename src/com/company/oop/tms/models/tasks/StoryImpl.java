@@ -81,6 +81,12 @@ public class StoryImpl extends TasksImpl implements Story {
         assignee.logActivityHistory(String.format("The size of item with ID: %d changed from %s to %s", getId(), currentSize, getSize()));
     }
 
-
-
+    @Override
+    public String toString() {
+        return String.format("""
+                %s
+                Priority: %s
+                Size: %s
+                Status: %s""",super.toString(),getPriority(),getSize(),getStatus());
+    }
 }

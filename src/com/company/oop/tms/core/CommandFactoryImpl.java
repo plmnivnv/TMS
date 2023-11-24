@@ -6,6 +6,9 @@ import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.commands.enums.CommandType;
 import com.company.oop.tms.commands.feedback_commands.*;
 import com.company.oop.tms.commands.listings.filter_command.*;
+import com.company.oop.tms.commands.listings.sort_command.SortBugByTitlePrioritySeverityCommand;
+import com.company.oop.tms.commands.listings.sort_command.SortFeedbackByTitleRatingCommand;
+import com.company.oop.tms.commands.listings.sort_command.SortStoryByTitlePrioritySizeCommand;
 import com.company.oop.tms.commands.listings.sort_command.SortTasksByTitleCommand;
 import com.company.oop.tms.commands.story_commands.*;
 import com.company.oop.tms.core.contracts.CommandFactory;
@@ -87,6 +90,12 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new FilterTasksByTitleCommand(systemRepository);
             case FILTERSTORYBYSTATUSANDASSIGNEE:
                 return new FilterStoryByStatusAndAssigneeCommand(systemRepository);
+            case SORTBUGS:
+                return new SortBugByTitlePrioritySeverityCommand(systemRepository);
+            case SORTSTORIES:
+                return new SortStoryByTitlePrioritySizeCommand(systemRepository);
+            case SORTFEEDBACKS:
+                return new SortFeedbackByTitleRatingCommand(systemRepository);
             default:
                 throw new IllegalArgumentException();
         }

@@ -1,6 +1,7 @@
 package com.company.oop.tms.models.tasks.enums;
 
 public enum Priority {
+
     HIGH,
     MEDIUM,
     LOW;
@@ -8,12 +9,12 @@ public enum Priority {
     @Override
     public String toString() {
         switch (this) {
-            case LOW:
-                return "Low";
             case HIGH:
                 return "High";
             case MEDIUM:
                 return "Medium";
+            case LOW:
+                return "Low";
             default:
                 throw new IllegalArgumentException();
         }

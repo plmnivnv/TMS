@@ -88,10 +88,12 @@ public class BugImpl extends TasksImpl implements Bug {
         assignee.logActivityHistory(String.format(SEVERITY_CHANGED_MESSAGE,getId(),currentSeverity,getSeverity()));
     }
 
-//    @Override
-//    public String toString() {
-//        return String.format("""
-//               %s
-//               Steps to produce: %s""",super.toString());
-//    }
+    @Override
+    public String toString() {
+        return String.format("""
+               %s
+               Priority: %s
+               Severity: %s
+               Status: %s""",super.toString(), getPriority(), getSeverity(), getStatusBug());
+    }
 }

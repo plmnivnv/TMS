@@ -52,5 +52,12 @@ public class FeedbackImpl extends TasksImpl implements Feedback {
         logActivityHistory(String.format(RATING_CHANGED_MESSAGE, getId(), currentRating, getRating()));
     }
 
+    @Override
+    public String toString() {
+        return String.format("""
+                %s
+                Status: %s
+                Rating: %d""",super.toString(),getStatusFeedback(),getRating());
 
+    }
 }

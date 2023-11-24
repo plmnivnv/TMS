@@ -2,34 +2,36 @@ package com.company.oop.tms.commands.listings.sort_command;
 
 import com.company.oop.tms.commands.contracts.Command;
 import com.company.oop.tms.core.contracts.SystemRepository;
+import com.company.oop.tms.models.tasks.contracts.Bug;
 import com.company.oop.tms.models.tasks.contracts.Task;
 import com.company.oop.tms.utils.ValidationHelpers;
 
 import java.util.Comparator;
 import java.util.List;
 
-public class SortTasksByTitleCommand implements Command {
+public class SortBugByTitlePrioritySeverityCommand implements Command {
+
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
+
     public static final String THERE_NO_TASKS_SORT_MSG = "There are no Tasks to be sorted!";
+    List<Bug> bugList;
 
-    private List<Task> taskList;
-
-    public SortTasksByTitleCommand(SystemRepository systemRepository) {
-        taskList = systemRepository.getTaskList();
+    public SortBugByTitlePrioritySeverityCommand(SystemRepository systemRepository) {
+        this.bugList = systemRepository.getBugList();
     }
-
 
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-
-        return sortAllTaskByTitle();
+        return sortBugByTitlePrioritySeverity();
     }
 
-    private String sortAllTaskByTitle() {
+
+    private String sortBugByTitlePrioritySeverity(){
         StringBuilder result = new StringBuilder();
-        taskList.stream()
-                .sorted(Comparator.comparing(Task::getTitle))
+        bugList
+                .stream()
+                .sorted(Comparator.comparing(Bug::getTitle).thenComparing(Bug::getPriority).thenComparing(Bug::getSeverity))
                 .forEach(task -> {
                     result.append(task)
                             .append(System.lineSeparator())
