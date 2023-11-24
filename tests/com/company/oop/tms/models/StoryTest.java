@@ -25,7 +25,7 @@ public class StoryTest {
         Assertions.assertEquals("This is a story test",story.getDescription());
         Assertions.assertEquals(Priority.LOW,story.getPriority());
         Assertions.assertEquals(Size.LARGE,story.getSize());
-        Assertions.assertEquals("John Doe",story.getAssignee());
+        Assertions.assertEquals("John Doe",story.getAssignee().getName());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class StoryTest {
         StoryImpl story = initializeStory();
 
         Member assignee = new MemberImpl("John Doe");
-        Assertions.assertEquals(assignee.getName(),story.getAssignee());
+        Assertions.assertEquals(assignee,story.getAssignee());
     }
 
     @Test
