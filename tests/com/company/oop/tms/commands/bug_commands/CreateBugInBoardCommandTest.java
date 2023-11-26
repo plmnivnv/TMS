@@ -23,10 +23,11 @@ public class CreateBugInBoardCommandTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 7;
 
     public static final String VALID_DESCRIPTION = "Description";
+
     public static final String VALID_MEMBER_NAME = "MemberName";
     public static final String VALID_BOARD_NAME = "BoardName";
     public static final String INVALID_MEMBER_NAME = "InvalidMemberName";
-    public static final String INVALID_SEVERITY = "invalidseverity";
+    public static final String INVALID_SEVERITY = "invalidSeverity";
     public static final String VALID_BUG_NAME = "ValidBugName";
     SystemRepository systemRepository;
     Command command;

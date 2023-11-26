@@ -22,6 +22,7 @@ public class FilterAssigneeTasksByAssigneeCommand implements Command {
 
     List<Bug> bugs;
     List<Story> stories;
+
     public FilterAssigneeTasksByAssigneeCommand(SystemRepository systemRepository){
         bugs = systemRepository.getBugList();
         stories = systemRepository.getStoryList();
