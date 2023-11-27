@@ -45,14 +45,5 @@ public class ShowAllTeamActivityCommandTests {
         Assertions.assertDoesNotThrow(() -> showTeamActivity.execute(args));
     }
 
-    //Todo
 
-//    @Test
-//    public void execute_Should_ShowAllMemberOfTeamActivity_When_ValidParameters() {
-//        Command showTeamActivity = new ShowAllTeamActivityCommand(systemRepository);
-//
-//        showTeamActivity.execute(args);
-//
-//        Assertions.assertDoesNotThrow(()-> showTeamActivity.execute(args));
-//    }
 }

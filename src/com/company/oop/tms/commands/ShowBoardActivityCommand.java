@@ -11,7 +11,6 @@ import java.util.List;
 
 public class ShowBoardActivityCommand implements Command {
 
-    //TODO
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     SystemRepository systemRepository;

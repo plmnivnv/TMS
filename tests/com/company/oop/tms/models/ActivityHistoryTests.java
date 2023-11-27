@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.time.format.DateTimeFormatter;
 
 public class ActivityHistoryTests {
-    //Todo
+
     @Test
     public void ActivityHistory_Print_Correct_Data(){
         ActivityHistoryImpl activityHistory = new ActivityHistoryImpl("Description");

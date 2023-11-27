@@ -21,7 +21,6 @@ public class FilterStoryByStatusCommandTest {
     private static final String VALID_STORY_NAME = "ValidStoryName";
     private static final String VALID_DESCRIPTION = "Description";
     private static final String VALID_STATUS_NAME = "Done";
-
     private static final String VALID_MEMBER_NAME = "MemberName";
 
 

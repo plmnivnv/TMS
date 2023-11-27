@@ -1,7 +1,6 @@
 package com.company.oop.tms.commands.listing.filter_command;
 
 import com.company.oop.tms.commands.contracts.Command;
-import com.company.oop.tms.commands.listings.filter_command.FilterBugByAssigneeCommand;
 import com.company.oop.tms.commands.listings.filter_command.FilterBugByStatusAndAssigneeCommand;
 import com.company.oop.tms.core.SystemRepositoryImpl;
 import com.company.oop.tms.core.contracts.SystemRepository;
