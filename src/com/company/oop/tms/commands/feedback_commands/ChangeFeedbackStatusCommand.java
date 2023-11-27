@@ -29,7 +29,7 @@ public class ChangeFeedbackStatusCommand implements Command {
     }
 
     private String changeFeedbackStatus(int id, StatusFeedback statusFeedback) {
-        Feedback feedback = systemRepository.findElementById(systemRepository.getFeedbackList(), id, "Bug");
+        Feedback feedback = systemRepository.findElementById(systemRepository.getFeedbackList(), id, "Feedback");
         feedback.changeStatus(statusFeedback);
         return String.format(STATUS_CHANGE_MESSAGE, feedback.getId(), feedback.getStatusFeedback());
     }

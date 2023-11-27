@@ -94,3 +94,99 @@ by status and assignee and sorts them by title.
 
 . FilterAssigneeTasksByStatus - filters all tasks with assignee by status
 and sorts them by title.
+
+### Sample Input
+
+```none
+Createmember Georgi
+Createmember Plamen
+Createmember Petar
+Createmember Stefan
+Createmember Stefan
+CreateTeam Chereshka
+CreateTeam Malina
+CreateTeam Malina
+AddMemberToTeam Georgi Chereshka
+AddMemberToTeam Plamen Chereshka
+AddMemberToTeam Petar Malina
+AddMemberToTeam Stefan Malina
+CreateBoard ChereBoard Chereshka
+CreateBoard MalinaBord Malina
+CreateBuginBoard ProblemInCore ProblemInCoreModuleCheckASAP checkInCorePackage,openRepository, high major Georgi ChereBoard
+CreateBuginBoard BugBugBug2 ProblemInModel Step1,Step2 high minor Plamen ChereBoard
+CreateBuginBoard BugBugBug3 ProblemWithPrint Step1,Step2,Step3 low minor Petar MalinaBord
+CreateBuginBoard BugBugBug4 ProblemWithExeption Step1,Step2,Step3,Step4 medium major Stefan MalinaBord
+changebugpriority 1 low
+changebugseverety 1 minor
+changebugStatus 1 done
+Createfeedbackinboard Feedbackkk1 FeedBackForBug1 1 ChereBoard
+Createfeedbackinboard Feedbackkk2 FeedBackForBug2 2 ChereBoard
+Createfeedbackinboard Feedbackkk3 FeedBackForBug3 3 MalinaBord
+Createfeedbackinboard Feedbackkk4 FeedBackForBug4 4 MalinaBord
+changeFeedbackStatus 5 SCHEDULED
+changeFeedbackRating 6 10
+CREATESTORYINBOARD FixedBugff1 SuperTufffffff medium small Georgi ChereBoard
+Changestorystatus 9 done
+```
+### Sample Output
+
+```none
+Member with name Georgi was created
+####################
+Member with name Plamen was created
+####################
+Member with name Petar was created
+####################
+Member with name Stefan was created
+####################
+Name Stefan already exist. Choose another name!
+####################
+Team with name Chereshka was created
+####################
+Team with name Malina was created
+####################
+Name Malina already exist. Choose another name!
+####################
+Member with name Georgi added to Team: Chereshka
+####################
+Member with name Plamen added to Team: Chereshka
+####################
+Member with name Petar added to Team: Malina
+####################
+Member with name Stefan added to Team: Malina
+####################
+Board with name ChereBoard was created
+####################
+Board with name MalinaBord was created
+####################
+Bug with ID 1 created in board ChereBoard
+####################
+Bug with ID 2 created in board ChereBoard
+####################
+Bug with ID 3 created in board MalinaBord
+####################
+Bug with ID 4 created in board MalinaBord
+####################
+Priority of Bug with ID 1 changed to Low.
+####################
+There is no changebugseverety in CommandTypes.
+####################
+Status of Bug with ID 1 changed to Done.
+####################
+Feedback with ID 5 crated in board ChereBoard
+####################
+Feedback with ID 6 crated in board ChereBoard
+####################
+Feedback with ID 7 crated in board MalinaBord
+####################
+Feedback with ID 8 crated in board MalinaBord
+####################
+Status of Feedback with ID 5 changed to Scheduled.
+####################
+Rating of feedback with ID 6 was changed to 10
+####################
+Story with ID 9 created in board ChereBoard
+####################
+Status of Story with ID 9 changed to Done.
+####################
+```
