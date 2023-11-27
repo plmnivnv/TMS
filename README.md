@@ -127,6 +127,18 @@ changeFeedbackStatus 5 SCHEDULED
 changeFeedbackRating 6 10
 CREATESTORYINBOARD FixedBugff1 SuperTufffffff medium small Georgi ChereBoard
 Changestorystatus 9 done
+ShowTeams
+ShowTeamMembers Chereshka
+ShowTeamMembers Malina
+ShowTeamBoards Malina
+ShowTeamBoards Chereshka
+ShowTeamActivity Chereshka
+ShowMembersActivity Georgi
+SortTasksByTitle
+FilterTasksByTitle B
+FilterBugByAssignee Georgi
+SortBugs
+
 ```
 ### Sample Output
 
@@ -189,4 +201,154 @@ Story with ID 9 created in board ChereBoard
 ####################
 Status of Story with ID 9 changed to Done.
 ####################
+1.Chereshka
+2.Malina
+####################
+1.Georgi
+2.Plamen
+####################
+1.Petar
+2.Stefan
+####################
+1.MalinaBord
+####################
+1.ChereBoard
+####################
+TEAM: CHERESHKA
+*** Georgi ***
+----------
+Priority of Item with ID: 1 was changed from High to Low. [27-11-2023 18:58:21]
+Status of Item with ID: 1 changed from Active to Done. [27-11-2023 18:58:21]
+The status of item with ID: 9 changed from Not done to Done [27-11-2023 18:58:21]
+----------
+*** Plamen ***
+----------
+----------
+####################
+Priority of Item with ID: 1 was changed from High to Low. [27-11-2023 18:58:21]
+Status of Item with ID: 1 changed from Active to Done. [27-11-2023 18:58:21]
+The status of item with ID: 9 changed from Not done to Done [27-11-2023 18:58:21]
+####################
+Task ID: 2
+Title: BugBugBug2
+Description: ProblemInModel
+Comments: []
+Assignee: Plamen
+Priority: High
+Severity: Minor
+Status: Active
+----------
+Task ID: 3
+Title: BugBugBug3
+Description: ProblemWithPrint
+Comments: []
+Assignee: Petar
+Priority: Low
+Severity: Minor
+Status: Active
+----------
+Task ID: 4
+Title: BugBugBug4
+Description: ProblemWithExeption
+Comments: []
+Assignee: Stefan
+Priority: Medium
+Severity: Major
+Status: Active
+----------
+Task ID: 5
+Title: Feedbackkk1
+Description: FeedBackForBug1
+Comments: []
+Status: Scheduled
+Rating: 1
+----------
+Task ID: 6
+Title: Feedbackkk2
+Description: FeedBackForBug2
+Comments: []
+Status: New
+Rating: 10
+----------
+Task ID: 7
+Title: Feedbackkk3
+Description: FeedBackForBug3
+Comments: []
+Status: New
+Rating: 3
+----------
+Task ID: 8
+Title: Feedbackkk4
+Description: FeedBackForBug4
+Comments: []
+Status: New
+Rating: 4
+----------
+Task ID: 9
+Title: FixedBugff1
+Description: SuperTufffffff
+Comments: []
+Assignee: Georgi
+Priority: Medium
+Size: Small
+Status: Done
+----------
+Task ID: 1
+Title: ProblemInCore
+Description: ProblemInCoreModuleCheckASAP
+Comments: []
+Assignee: Georgi
+Priority: Low
+Severity: Major
+Status: Done
+----------
+####################
+Task ID: 2
+Title: BugBugBug2
+Description: ProblemInModel
+Comments: []
+Assignee: Plamen
+Priority: High
+Severity: Minor
+Status: Active
+----------
+Task ID: 3
+Title: BugBugBug3
+Description: ProblemWithPrint
+Comments: []
+Assignee: Petar
+Priority: Low
+Severity: Minor
+Status: Active
+----------
+Task ID: 4
+Title: BugBugBug4
+Description: ProblemWithExeption
+Comments: []
+Assignee: Stefan
+Priority: Medium
+Severity: Major
+Status: Active
+----------
+Task ID: 9
+Title: FixedBugff1
+Description: SuperTufffffff
+Comments: []
+Assignee: Georgi
+Priority: Medium
+Size: Small
+Status: Done
+----------
+####################
+Task ID: 1
+Title: ProblemInCore
+Description: ProblemInCoreModuleCheckASAP
+Comments: []
+Assignee: Georgi
+Priority: Low
+Severity: Major
+Status: Done
+----------
+####################
+
 ```
